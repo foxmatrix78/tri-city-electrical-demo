@@ -68,6 +68,7 @@ const CO = {
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75", // Modern home
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=75",   // Kitchen (verified)
       "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=800&q=75", // Kitchen with lighting
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=75", // Open plan living
     ],
 
     /* Project highlight photos */
@@ -1384,7 +1385,7 @@ const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion:re
   }
 
   // Gallery
-  const GAL_LABELS = ['Kitchen Pot Lights','Living Room','Living Area','Bathroom Lighting','Kitchen Renovation','Modern Home','Electrician At Work','Kitchen Relight'];
+  const GAL_LABELS = ['Kitchen Pot Lights','Living Room','Living Area','Bathroom Lighting','Kitchen Renovation','Modern Home','Electrician At Work','Kitchen Relight','Open Plan Living'];
   const galGrid = $('gal-grid');
   if(galGrid){
     galGrid.innerHTML = CO.PHOTOS.gallery.map((src,i)=>{
