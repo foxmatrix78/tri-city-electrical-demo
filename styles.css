@@ -1437,20 +1437,20 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     inset: var(--hdr-h) 0 0 0;
     background: var(--ink-950);
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 2rem var(--pad);
+    justify-content: center;
+    padding: 1rem var(--pad);
     transform: translateX(100%);
     transition: transform .38s var(--ease);
     z-index: 300;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   .nav.open { transform: translateX(0); }
-  .nav.open .nav__list { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; display: flex; }
-  .nav__link { display: block; padding: 1rem 0; font-size: 1.125rem; color: var(--ink-200); border-bottom: 1px solid rgba(255,255,255,.06); width: 100%; }
+  .nav.open .nav__list { flex-direction: column; align-items: center; gap: 0; width: 100%; display: flex; }
+  .nav__link { display: block; padding: 0.6rem 0; font-size: 1rem; color: var(--ink-200); border-bottom: 1px solid rgba(255,255,255,.06); width: 100%; text-align: center; }
   .nav__link::after { display: none; }
   .nav__mobile-cta {
     display: block;
-    margin-top: 1.5rem;
+    margin-top: 0.875rem;
     width: 100%;
     text-align: center;
     background: var(--a);
