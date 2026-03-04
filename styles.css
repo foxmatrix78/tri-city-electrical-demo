@@ -1431,14 +1431,15 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   .guar-block__side { width: 100%; padding: 1.5rem; }
   .guar-block__main { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  /* Mobile nav drawer */
+  /* Mobile nav drawer — full viewport, header stays on top (z-400 > z-300) */
   .nav {
     position: fixed;
-    inset: var(--hdr-h) 0 0 0;
+    inset: 0 0 0 0;
     background: var(--ink-950);
     flex-direction: column;
     justify-content: center;
-    padding: 1rem var(--pad);
+    align-items: center;
+    padding: calc(var(--hdr-h) + 1rem) var(--pad) 2rem;
     transform: translateX(100%);
     transition: transform .38s var(--ease);
     z-index: 300;
