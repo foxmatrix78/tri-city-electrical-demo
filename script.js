@@ -27,28 +27,49 @@
     const toggle = document.getElementById('navToggle');
     const nav    = document.getElementById('nav');
     if (!toggle || !nav) return;
+
+    // Remember nav's original DOM position so we can return it on close
+    const navParent = nav.parentNode;
+    const navNextSib = nav.nextSibling;
+
     const close = () => {
       nav.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-    };
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
-      // Measure total offset (topbar + header) so nav content starts below both
-      if (open) {
-        const hdr = document.getElementById('header');
-        const topbar = document.querySelector('.topbar');
-        const topbarH = topbar ? topbar.getBoundingClientRect().bottom : 0;
-        const hdrH = hdr ? hdr.getBoundingClientRect().bottom : 68;
-        const offset = Math.max(topbarH, hdrH);
-        nav.style.paddingTop = (offset + 8) + 'px';
+      // Return nav to its original position in the header
+      if (nav.parentNode === document.body) {
+        navParent.insertBefore(nav, navNextSib);
       }
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.contains('open');
+      if (isOpen) { close(); return; }
+
+      // Teleport nav to <body> so it escapes sticky header stacking context
+      // This fixes iOS Safari's fixed-inside-sticky clipping bug
+      document.body.appendChild(nav);
+
+      // Measure actual offset of topbar + header before opening
+      const hdr    = document.getElementById('header');
+      const topbar = document.querySelector('.topbar');
+      const topbarBottom = topbar ? topbar.getBoundingClientRect().bottom : 0;
+      const hdrBottom    = hdr   ? hdr.getBoundingClientRect().bottom    : 68;
+      const offset = Math.max(topbarBottom, hdrBottom);
+      nav.style.paddingTop = (offset + 12) + 'px';
+
+      // Trigger open state after appending to body
+      requestAnimationFrame(() => {
+        nav.classList.add('open');
+        toggle.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      });
     });
+
     nav.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', close));
+
     document.addEventListener('click', e => {
       if (nav.classList.contains('open') &&
           !nav.contains(e.target) &&
