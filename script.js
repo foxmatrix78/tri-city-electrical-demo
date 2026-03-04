@@ -38,6 +38,15 @@
       toggle.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
+      // Measure total offset (topbar + header) so nav content starts below both
+      if (open) {
+        const hdr = document.getElementById('header');
+        const topbar = document.querySelector('.topbar');
+        const topbarH = topbar ? topbar.getBoundingClientRect().bottom : 0;
+        const hdrH = hdr ? hdr.getBoundingClientRect().bottom : 68;
+        const offset = Math.max(topbarH, hdrH);
+        nav.style.paddingTop = (offset + 8) + 'px';
+      }
     });
     nav.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', close));
     document.addEventListener('click', e => {

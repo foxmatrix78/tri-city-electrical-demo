@@ -1439,7 +1439,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: calc(var(--hdr-h) + 1rem) var(--pad) 2rem;
+    padding: calc(var(--hdr-h) + 64px) var(--pad) 2rem; /* 64px fallback covers topbar; JS overrides precisely */
     transform: translateX(100%);
     transition: transform .38s var(--ease);
     z-index: 300;
