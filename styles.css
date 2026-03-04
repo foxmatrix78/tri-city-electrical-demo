@@ -1431,19 +1431,25 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   .guar-block__side { width: 100%; padding: 1.5rem; }
   .guar-block__main { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  /* Mobile nav drawer — full viewport, header stays on top (z-400 > z-300) */
+  /* Mobile nav drawer — full viewport, explicit dims for iOS Safari reliability */
   .nav {
     position: fixed;
-    inset: 0 0 0 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background: var(--ink-950);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: calc(var(--hdr-h) + 64px) var(--pad) 2rem; /* 64px fallback covers topbar; JS overrides precisely */
+    padding: calc(var(--hdr-h) + 72px) var(--pad) calc(env(safe-area-inset-bottom, 0px) + 2rem);
     transform: translateX(100%);
     transition: transform .38s var(--ease);
     z-index: 300;
-    overflow-y: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav.open { transform: translateX(0); }
   .nav.open .nav__list { flex-direction: column; align-items: center; gap: 0; width: 100%; display: flex; }
