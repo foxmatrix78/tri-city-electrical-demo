@@ -1423,6 +1423,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   .svc-detail { grid-template-columns: 1fr; }
   .nav__list { display: none; }
   .header__right .btn { display: none; }
+  .header__right { display: none; }
   .nav-toggle { display: flex; }
   .mob-bar { display: flex; }
   body { padding-bottom: max(64px, calc(64px + env(safe-area-inset-bottom, 0px))); }
@@ -1444,7 +1445,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     overflow-y: auto;
   }
   .nav.open { transform: translateX(0); }
-  .nav__list { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; display: flex; }
+  .nav.open .nav__list { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; display: flex; }
   .nav__link { display: block; padding: 1rem 0; font-size: 1.125rem; color: var(--ink-200); border-bottom: 1px solid rgba(255,255,255,.06); width: 100%; }
   .nav__link::after { display: none; }
   .nav__mobile-cta {
