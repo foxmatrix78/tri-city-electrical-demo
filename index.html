@@ -1,1650 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#080D16" />
-<script>
-const CO = {
-  name:       "Tri-City Potlight & Electrical",
-  nameParts:  ["Tri-City", "Potlight & Electrical"],
-  tagline:    "Kitchener's #1 Potlight Specialists",
-  phone:      "(519) 555-0199",
-  phoneTel:   "5195550199",
-  email:      "info@tricityelectrical.ca",
-  address:    "Kitchener, Ontario",
-  city:       "Kitchener",
-  region:     "Waterloo Region",
-  province:   "Ontario",
-  founded:    "2009",
-  years:      "15+",
-  license:    "ESA #7012345",
-  wsib:       "WSIB #000000",
-  rating:     4.9,
-  ratingStr:  "4.9",
-  reviews:    "312",
-  jobs:       4800,
-  residential:3200,
-  condo:       940,
-  commercial:  660,
-
-  services: [
-    { icon:"light",   title:"Pot Light Installation",   sub:"Most Popular",   desc:"LED recessed potlights installed in any ceiling type — drywall, plaster, T&G, or insulated. No damage. Clean finish." },
-    { icon:"panel",   title:"Panel Upgrades",            sub:"ESA Certified",  desc:"100A to 200A or 400A upgrades, sub-panel installs, and load-centre replacements for modern electrical demands." },
-    { icon:"ev",      title:"EV Charger Installation",   sub:"EV Ready",       desc:"Level 2 home EV charger installation (EVSE). All major brands. Permit pulled, ESA inspected." },
-    { icon:"smart",   title:"Smart Lighting",            sub:"App Controlled", desc:"Lutron Caseta, Kasa, and Govee smart dimmer integration. Voice and app control. Works with your existing potlights." },
-    { icon:"wrench",  title:"Troubleshooting & Repair",  sub:"24/7 Available", desc:"Tripped breakers, dead outlets, flickering lights, GFCI failures. Fast diagnostics and same-day repair." },
-    { icon:"building",title:"Commercial Electrical",     sub:"Licensed",       desc:"Office retrofits, warehouse LED upgrades, data room wiring, and ESA permit work for commercial clients." },
-  ],
-
-  areas: ["Kitchener","Cambridge","Waterloo","Guelph","Elmira","Baden","New Hamburg","Breslau","Fergus","Elora"],
-
-  colorPrimary:  "#1A56DB",
-  colorPrimaryDk:"#1340B3",
-  colorAccent:   "#F59E0B",
-
-  /* ── PHOTOS
-     Curated for residential LED lighting context.
-     All images: consistent bright/clean residential interiors.
-     Before/After: clear visual contrast for pot light transformation.
-  ── */
-  PHOTOS: {
-    /* Hero: modern living room with bright ceiling lighting */
-    hero: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1600&q=80",
-
-    /* Before: warm/dim interior prior to LED upgrade */
-    before: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=1200&q=75",
-
-    /* After: bright modern white interior post LED pot lights */
-    after: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
-
-    /* Gallery: 8 residential interior project photos */
-    gallery: [
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=75",   // Kitchen
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=75", // Modern interior
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=75", // Living room interior
-      "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=75", // Open concept
-      "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=800&q=75", // Bedroom/hallway
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75", // Modern home
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=75",   // Kitchen (verified)
-      "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=800&q=75", // Kitchen with lighting
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=75", // Open plan living
-    ],
-
-    /* Project highlight photos */
-    ph1:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?auto=format&fit=crop&w=900&q=80",
-    ph2:  "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=900&q=80",
-    ph3:  "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=900&q=80",
-
-    /* Electrician at work — trust/why section (verified working) */
-    team: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=80",
-  },
-};
-</script>
-
-<title id="pg-title">Loading…</title>
-<meta id="pg-desc" name="description" content="" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ═══════════════════════════════════════
-   DESIGN TOKENS
-═══════════════════════════════════════ */
-:root {
-  --p:       #1A56DB;
-  --p-dk:    #1340B3;
-  --p-lt:    #EBF1FF;
-  --p-gl:    rgba(26,86,219,.14);
-  --p-glow:  rgba(26,86,219,.38);
-  --a:       #F59E0B;
-  --a-gl:    rgba(245,158,11,.14);
-  --a-glow:  rgba(245,158,11,.40);
-
-  --ink-950: #030609;
-  --ink-900: #080D16;
-  --ink-800: #0D1424;
-  --ink-750: #111B2E;
-  --ink-700: #172239;
-  --ink-600: #263448;
-  --ink-500: #3D5066;
-  --ink-400: #627285;
-  --ink-300: #8E9FAF;
-  --ink-200: #B8C5D0;
-  --ink-100: #D8E2EA;
-  --ink-050: #F1F4F7;
-  --ink-000: #FFFFFF;
-
-  --red:     #DC2626;
-  --red-gl:  rgba(220,38,38,.15);
-  --green:   #10B981;
-  --green-gl:rgba(16,185,129,.13);
-
-  --fd: 'Manrope', system-ui, sans-serif;
-  --fb: 'Inter', system-ui, sans-serif;
-
-  --t-11:.6875rem; --t-12:.75rem;  --t-13:.8125rem;
-  --t-14:.875rem;  --t-15:.9375rem;--t-16:1rem;
-  --t-18:1.125rem; --t-20:1.25rem; --t-22:1.375rem;
-  --t-24:1.5rem;   --t-28:1.75rem; --t-32:2rem;
-  --t-36:2.25rem;  --t-42:2.625rem;--t-48:3rem;
-  --t-56:3.5rem;   --t-64:4rem;    --t-72:4.5rem;
-
-  --s-4:.25rem; --s-6:.375rem; --s-8:.5rem;  --s-10:.625rem;
-  --s-12:.75rem;--s-14:.875rem;--s-16:1rem;  --s-20:1.25rem;
-  --s-24:1.5rem;--s-28:1.75rem;--s-32:2rem;  --s-40:2.5rem;
-  --s-48:3rem;  --s-56:3.5rem; --s-64:4rem;  --s-80:5rem;
-
-  --r-4:4px; --r-6:6px;  --r-8:8px;  --r-10:10px; --r-12:12px;
-  --r-16:16px;--r-20:20px;--r-24:24px;--r-f:9999px;
-
-  --sh-xs: 0 1px 2px rgba(0,0,0,.06);
-  --sh-sm: 0 1px 4px rgba(0,0,0,.09),0 2px 8px rgba(0,0,0,.06);
-  --sh-md: 0 4px 16px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.07);
-  --sh-lg: 0 8px 32px rgba(0,0,0,.14),0 4px 12px rgba(0,0,0,.08);
-  --sh-xl: 0 20px 56px rgba(0,0,0,.18),0 8px 20px rgba(0,0,0,.10);
-  --sh-2xl:0 32px 80px rgba(0,0,0,.22);
-  --sh-p:  0 6px 24px var(--p-glow);
-  --sh-p-lg:0 14px 40px var(--p-glow);
-  --sh-a:  0 6px 22px var(--a-glow);
-  --sh-a-lg:0 12px 32px var(--a-glow);
-
-  --ease:    cubic-bezier(.22,1,.36,1);
-  --ease-io: cubic-bezier(.37,0,.63,1);
-
-  --max:  1180px;
-  --pad:  clamp(1.25rem,5vw,2.5rem);
-  --hdr-h:68px;
-}
-
-/* ═══════════════════════════════════════
-   RESET
-═══════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{
-  scroll-behavior:smooth;
-  /* Accounts for sticky header height so anchors land below it */
-  scroll-padding-top:calc(var(--hdr-h) + 12px);
-  -webkit-text-size-adjust:100%;
-}
-body{
-  font-family:var(--fb);font-size:var(--t-16);
-  line-height:1.65;color:var(--ink-700);
-  background:var(--ink-000);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit;}
-img{display:block;max-width:100%;height:auto;}
-svg{display:block;}
-ul{list-style:none;}
-button{font-family:inherit;cursor:pointer;border:none;background:none;}
-input,select,textarea{font-family:inherit;font-size:inherit;}
-.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);}
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════ */
-.sr{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
-.sr.up{opacity:1;transform:none;}
-.sr.d1{transition-delay:.07s;} .sr.d2{transition-delay:.14s;}
-.sr.d3{transition-delay:.21s;} .sr.d4{transition-delay:.28s;}
-.sr.d5{transition-delay:.35s;}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
-.ha{opacity:0;animation:fadeUp .65s var(--ease) forwards;}
-.ha.t1{animation-delay:.10s;} .ha.t2{animation-delay:.26s;}
-.ha.t3{animation-delay:.44s;} .ha.t4{animation-delay:.60s;}
-.ha.t5{animation-delay:.74s;}
-
-@media(prefers-reduced-motion:reduce){
-  .sr,.ha{opacity:1;transform:none;transition:none;animation:none;}
-  *{transition-duration:.01ms!important;animation-duration:.01ms!important;}
-}
-
-/* ═══════════════════════════════════════
-   BUTTONS — shadow-only hovers, no transform (no CLS)
-═══════════════════════════════════════ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:var(--s-8);padding:.9rem 1.9rem;
-  border-radius:var(--r-10);font-family:var(--fb);
-  font-size:var(--t-15);font-weight:700;letter-spacing:-.01em;
-  line-height:1;white-space:nowrap;cursor:pointer;
-  transition:box-shadow .22s var(--ease),background .15s,border-color .15s,color .15s;
-  -webkit-tap-highlight-color:transparent;
-}
-.btn:focus-visible{outline:2.5px solid var(--p);outline-offset:3px;}
-.btn:active{opacity:.88;}
-.btn-p{background:var(--p);color:#fff;box-shadow:var(--sh-p);}
-.btn-p:hover{background:var(--p-dk);box-shadow:var(--sh-p-lg);}
-.btn-a{background:var(--a);color:var(--ink-900);box-shadow:var(--sh-a);}
-.btn-a:hover{background:#d97706;box-shadow:var(--sh-a-lg);}
-.btn-g{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.22);}
-.btn-g:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.45);}
-.btn-w{background:#fff;color:var(--p);box-shadow:var(--sh-lg);}
-.btn-w:hover{background:var(--ink-050);box-shadow:var(--sh-xl);}
-.btn-r{background:var(--red);color:#fff;box-shadow:0 6px 20px rgba(220,38,38,.3);}
-.btn-r:hover{background:#b91c1c;box-shadow:0 10px 28px rgba(220,38,38,.38);}
-.btn-lg{padding:1.1rem 2.25rem;font-size:var(--t-16);border-radius:var(--r-12);}
-.btn-sm{padding:.55rem 1.1rem;font-size:var(--t-13);border-radius:var(--r-8);}
-
-/* ═══════════════════════════════════════
-   TOP BAR
-═══════════════════════════════════════ */
-#topbar{
-  background:var(--red);color:#fff;
-  font-size:var(--t-13);font-weight:600;
-  padding:.6rem var(--pad);
-  display:flex;align-items:center;justify-content:center;
-  gap:var(--s-20);flex-wrap:wrap;
-  position:relative;z-index:400;
-}
-.tb-pulse{
-  display:inline-block;width:6px;height:6px;
-  background:#fff;border-radius:50%;margin-right:var(--s-8);
-  animation:pulse 1.8s ease infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.55);}}
-.tb-pill{
-  display:inline-flex;align-items:center;gap:var(--s-6);
-  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
-  border-radius:var(--r-f);padding:3px var(--s-12);
-  font-size:var(--t-11);font-weight:800;letter-spacing:.04em;
-}
-.tb-link{
-  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);
-  border-radius:var(--r-f);padding:var(--s-4) var(--s-14);
-  font-weight:800;transition:background .15s;
-}
-.tb-link:hover{background:rgba(255,255,255,.28);}
-
-/* ═══════════════════════════════════════
-   HEADER
-═══════════════════════════════════════ */
-#hdr{
-  position:sticky;top:0;z-index:300;
-  background:rgba(8,13,22,.96);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.07);
-  transition:box-shadow .3s;
-}
-#hdr.shadow{box-shadow:0 4px 28px rgba(0,0,0,.65);}
-.hdr-in{
-  display:flex;align-items:center;justify-content:space-between;
-  height:var(--hdr-h);gap:var(--s-24);
-  max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);
-}
-.logo{display:flex;align-items:center;gap:var(--s-12);flex-shrink:0;}
-.logo-mark{
-  width:40px;height:40px;
-  background:linear-gradient(135deg,var(--p) 0%,#5b9af8 100%);
-  border-radius:var(--r-10);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:var(--sh-p);flex-shrink:0;
-}
-.logo-mark svg{color:#fff;}
-.logo-name{font-family:var(--fd);font-size:var(--t-16);font-weight:800;color:#fff;letter-spacing:-.025em;line-height:1.2;}
-.logo-name b{color:var(--a);}
-.logo-tag{font-size:var(--t-10);color:var(--ink-400);font-weight:500;margin-top:2px;}
-nav{display:flex;align-items:center;gap:var(--s-28);}
-nav a{font-size:var(--t-14);font-weight:600;color:var(--ink-300);letter-spacing:-.01em;transition:color .15s;position:relative;}
-nav a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--a);border-radius:2px;transform:scaleX(0);transition:transform .22s var(--ease);}
-nav a:hover{color:#fff;}
-nav a:hover::after{transform:scaleX(1);}
-.hdr-right{display:flex;align-items:center;gap:var(--s-16);flex-shrink:0;}
-.hdr-phone{display:flex;align-items:center;gap:var(--s-8);font-size:var(--t-15);font-weight:700;color:#fff;transition:color .15s;}
-.hdr-phone:hover{color:var(--a);}
-.ph-wrap{width:30px;height:30px;background:var(--a-gl);border-radius:var(--r-8);display:flex;align-items:center;justify-content:center;color:var(--a);}
-
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-#hero{
-  position:relative;
-  min-height:clamp(580px,90vh,820px);
-  display:flex;align-items:center;overflow:hidden;
-}
-.hero-bg{position:absolute;inset:0;background:var(--ink-900);}
-.hero-bg img{
-  width:100%;height:100%;object-fit:cover;object-position:center;
-  opacity:.45;
-}
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
-  background:
-    linear-gradient(90deg,rgba(8,13,22,.90) 0%,rgba(8,13,22,.62) 55%,rgba(8,13,22,.28) 100%),
-    linear-gradient(0deg,rgba(8,13,22,.72) 0%,transparent 50%);
-}
-.hero-bg::before{
-  content:'';position:absolute;inset:0;z-index:1;
-  background-image:radial-gradient(circle,rgba(26,86,219,.14) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-.hero-inner{
-  position:relative;z-index:2;
-  max-width:var(--max);margin-inline:auto;
-  padding:clamp(3rem,8vw,5rem) var(--pad);width:100%;
-}
-.hero-content{max-width:620px;}
-.hero-pill{
-  display:inline-flex;align-items:center;gap:var(--s-8);
-  background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);
-  color:#fbbf24;padding:var(--s-6) var(--s-16);border-radius:var(--r-f);
-  font-size:var(--t-12);font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:var(--s-20);
-}
-.hero-pill .hdot{width:6px;height:6px;background:var(--a);border-radius:50%;box-shadow:0 0 6px var(--a);animation:pulse 1.8s ease infinite;}
-#hero h1{font-family:var(--fd);font-size:clamp(2.2rem,5.8vw,4.2rem);font-weight:900;color:#fff;line-height:1.06;letter-spacing:-.04em;margin-bottom:var(--s-20);}
-#hero h1 .city{color:var(--a);}
-#hero h1 .lline{display:block;background:linear-gradient(90deg,#fff 0%,#a8c8ff 60%,var(--p) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:rgba(255,255,255,.72);line-height:1.75;max-width:510px;margin-bottom:var(--s-32);}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--s-14);margin-bottom:var(--s-32);}
-.trust-row{display:flex;flex-wrap:wrap;gap:var(--s-16);padding-top:var(--s-24);border-top:1px solid rgba(255,255,255,.08);}
-.tbadge{display:flex;align-items:center;gap:var(--s-8);font-size:var(--t-13);font-weight:600;color:rgba(255,255,255,.65);}
-.tbadge .tbi{width:18px;height:18px;background:var(--green-gl);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--green);}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:var(--s-8);color:rgba(255,255,255,.4);font-size:var(--t-12);font-weight:500;}
-.scroll-dot{width:24px;height:40px;border:1.5px solid rgba(255,255,255,.25);border-radius:12px;display:flex;justify-content:center;padding-top:6px;overflow:hidden;}
-.scroll-dot::after{content:'';width:4px;height:8px;background:rgba(255,255,255,.5);border-radius:2px;animation:scrollAnim 2s ease-in-out infinite;}
-@keyframes scrollAnim{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(14px);opacity:0;}}
-
-/* ═══════════════════════════════════════
-   STATS BAR
-═══════════════════════════════════════ */
-#stats-bar{background:var(--ink-800);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:var(--s-32) 0;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-16);overflow:hidden;}
-.stat-box{background:var(--ink-800);padding:var(--s-28) var(--s-24);text-align:center;transition:background .25s;}
-.stat-box:hover{background:var(--ink-750);}
-.stat-n{font-family:var(--fd);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1;margin-bottom:var(--s-6);}
-.stat-n .u{font-size:.6em;color:var(--a);}
-.stat-l{font-size:var(--t-13);color:var(--ink-400);font-weight:500;}
-
-/* ═══════════════════════════════════════
-   TRUST BAR
-═══════════════════════════════════════ */
-#trust-bar{background:var(--ink-050);border-bottom:1px solid var(--ink-100);padding:var(--s-16) var(--pad);}
-.tbar-items{display:flex;align-items:center;justify-content:center;gap:clamp(.5rem,3vw,1.75rem);flex-wrap:wrap;max-width:var(--max);margin-inline:auto;}
-.tbar-item{display:flex;align-items:center;gap:var(--s-8);color:var(--ink-500);font-size:var(--t-13);font-weight:600;white-space:nowrap;}
-.tbar-item em{color:var(--ink-800);font-style:normal;}
-.tbar-ico{color:var(--p);display:flex;}
-.tbar-sep{width:1px;height:16px;background:var(--ink-100);flex-shrink:0;}
-
-/* ═══════════════════════════════════════
-   SECTION SHARED
-═══════════════════════════════════════ */
-.sec{padding:clamp(4rem,9vw,6.5rem) 0;}
-.sec-lt{background:var(--ink-050);}
-.sec-dk{background:var(--ink-900);}
-.sec-mid{background:var(--ink-800);}
-.eyebrow{display:inline-block;font-size:var(--t-11);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p);margin-bottom:var(--s-12);}
-.eyebrow.lt{color:var(--a);}
-.eyebrow.gld{color:var(--a);}
-.sh{font-family:var(--fd);font-size:clamp(1.75rem,4.2vw,2.75rem);font-weight:900;letter-spacing:-.035em;line-height:1.15;color:var(--ink-900);margin-bottom:var(--s-16);}
-.sh.lt{color:#fff;}
-.ss{font-size:var(--t-18);color:var(--ink-400);line-height:1.7;max-width:560px;}
-.ss.lt{color:var(--ink-300);}
-.ss.cx{margin-inline:auto;}
-.shd{text-align:center;margin-bottom:clamp(2.5rem,5vw,4rem);}
-
-/* ═══════════════════════════════════════
-   SERVICES — shadow-only hover, no transform
-═══════════════════════════════════════ */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-20);}
-.svc-card{
-  background:var(--ink-000);border:1px solid var(--ink-100);
-  border-radius:var(--r-20);overflow:hidden;position:relative;
-  transition:box-shadow .38s var(--ease),border-color .22s;
-  cursor:pointer;
-}
-.svc-card:hover{box-shadow:var(--sh-lg);border-color:transparent;}
-.svc-card::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
-  background:linear-gradient(90deg,var(--p) 0%,var(--a) 100%);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease);
-}
-.svc-card:hover::after{transform:scaleX(1);}
-.svc-body{padding:var(--s-24) var(--s-24) var(--s-20);}
-.svc-ico{
-  width:50px;height:50px;border-radius:var(--r-12);
-  background:var(--p-lt);display:flex;align-items:center;justify-content:center;
-  margin-bottom:var(--s-20);color:var(--p);
-  transition:background .25s,color .22s;
-}
-.svc-card:hover .svc-ico{background:var(--p);color:#fff;}
-.svc-sub{font-size:var(--t-11);font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--a);margin-bottom:var(--s-6);}
-.svc-card h3{font-size:var(--t-18);font-weight:800;color:var(--ink-900);letter-spacing:-.02em;margin-bottom:var(--s-10);}
-.svc-card p{font-size:var(--t-14);color:var(--ink-400);line-height:1.7;margin-bottom:var(--s-20);}
-.svc-more{display:inline-flex;align-items:center;gap:var(--s-6);font-size:var(--t-13);font-weight:700;color:var(--p);transition:gap .2s var(--ease);}
-.svc-card:hover .svc-more{gap:var(--s-12);}
-
-/* ═══════════════════════════════════════
-   GALLERY
-═══════════════════════════════════════ */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:var(--s-8);border-radius:var(--r-16);overflow:hidden;}
-.gallery-grid .g-big{grid-column:span 2;grid-row:span 2;}
-.gallery-item{position:relative;overflow:hidden;background:var(--ink-700);cursor:pointer;}
-/* Image fallback: aspect-ratio ensures no collapse if image fails */
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease),filter .3s;filter:brightness(.92);}
-.gallery-item:hover img{transform:scale(1.07);filter:brightness(1.05);}
-.gallery-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,13,22,.75) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:var(--s-16);}
-.gallery-item:hover .gallery-overlay{opacity:1;}
-.gallery-tag{font-size:var(--t-12);font-weight:700;color:#fff;background:rgba(26,86,219,.7);border-radius:var(--r-6);padding:3px var(--s-10);}
-
-/* ═══════════════════════════════════════
-   BEFORE / AFTER SLIDER
-═══════════════════════════════════════ */
-#ba-section{background:var(--ink-900);padding:clamp(4rem,9vw,6.5rem) 0;position:relative;overflow:hidden;}
-#ba-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(26,86,219,.06) 0%,transparent 70%);}
-.ba-wrap{position:relative;z-index:1;}
-.ba-container{
-  position:relative;border-radius:var(--r-20);overflow:hidden;
-  box-shadow:var(--sh-2xl);user-select:none;cursor:ew-resize;
-  aspect-ratio:16/9;max-height:520px;
-  /* Fallback background if images fail */
-  background:linear-gradient(90deg,var(--ink-800) 50%,var(--ink-700) 50%);
-}
-.ba-after,.ba-before{position:absolute;inset:0;width:100%;height:100%;}
-.ba-after img,.ba-before img{width:100%;height:100%;object-fit:cover;pointer-events:none;display:block;}
-.ba-before{clip-path:inset(0 50% 0 0);transition:clip-path 0s;}
-.ba-divider{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:3px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.5);z-index:10;pointer-events:none;}
-.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;background:#fff;border-radius:50%;box-shadow:0 3px 14px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;pointer-events:none;color:var(--ink-700);}
-.ba-label{position:absolute;bottom:1.25rem;font-size:var(--t-12);font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:rgba(8,13,22,.7);border-radius:var(--r-f);padding:var(--s-4) var(--s-14);pointer-events:none;z-index:11;}
-.ba-label-b{left:1.25rem;}
-.ba-label-a{right:1.25rem;}
-.ba-hint{text-align:center;margin-top:var(--s-16);font-size:var(--t-13);color:var(--ink-400);display:flex;align-items:center;justify-content:center;gap:var(--s-8);}
-
-/* ═══════════════════════════════════════
-   PROJECT HIGHLIGHTS
-   Added fallback background to .ph-img
-═══════════════════════════════════════ */
-.ph-block{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center;padding:clamp(3.5rem,8vw,5.5rem) 0;}
-.ph-block+.ph-block{border-top:1px solid var(--ink-100);}
-.ph-img{
-  position:relative;border-radius:var(--r-20);overflow:hidden;
-  box-shadow:var(--sh-xl);aspect-ratio:4/3;
-  /* Fallback if image fails to load */
-  background:linear-gradient(140deg,var(--ink-800) 0%,var(--ink-700) 100%);
-}
-.ph-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
-.ph-img:hover img{transform:scale(1.04);}
-.ph-badge{position:absolute;bottom:var(--s-20);left:var(--s-20);background:var(--ink-900);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-10);padding:var(--s-10) var(--s-16);}
-.ph-badge strong{display:block;font-size:var(--t-20);font-weight:900;color:#fff;line-height:1;}
-.ph-badge span{font-size:var(--t-11);color:var(--ink-400);font-weight:500;}
-.ph-tag{display:inline-flex;align-items:center;gap:var(--s-6);font-size:var(--t-11);font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--a);margin-bottom:var(--s-12);}
-.ph-h{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:900;letter-spacing:-.03em;color:var(--ink-900);line-height:1.18;margin-bottom:var(--s-16);}
-.ph-p{font-size:var(--t-16);color:var(--ink-400);line-height:1.8;margin-bottom:var(--s-24);}
-.ph-checks{display:flex;flex-direction:column;gap:var(--s-10);}
-.ph-check{display:flex;align-items:center;gap:var(--s-12);font-size:var(--t-14);font-weight:600;color:var(--ink-600);}
-.ph-check .ck{width:20px;height:20px;flex-shrink:0;background:var(--green-gl);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);}
-
-/* ═══════════════════════════════════════
-   WHY US — added fallback background to .why-img
-═══════════════════════════════════════ */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center;}
-.why-feats{display:flex;flex-direction:column;gap:var(--s-14);margin-top:var(--s-28);}
-.why-feat{display:flex;gap:var(--s-16);padding:var(--s-20);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-16);transition:background .22s,border-color .22s;}
-.why-feat:hover{background:rgba(26,86,219,.08);border-color:rgba(26,86,219,.25);}
-.why-feat-ico{width:44px;height:44px;flex-shrink:0;border-radius:var(--r-10);background:var(--p-gl);display:flex;align-items:center;justify-content:center;color:var(--p);transition:background .22s,color .22s;}
-.why-feat:hover .why-feat-ico{background:var(--p);color:#fff;}
-.why-feat h4{font-size:var(--t-15);font-weight:700;color:#fff;margin-bottom:3px;}
-.why-feat p{font-size:var(--t-14);color:var(--ink-400);line-height:1.65;}
-.why-img{
-  position:relative;border-radius:var(--r-24);overflow:hidden;
-  box-shadow:var(--sh-2xl);aspect-ratio:3/4;max-height:560px;
-  /* Fallback background */
-  background:linear-gradient(160deg,var(--ink-700) 0%,var(--ink-800) 100%);
-}
-.why-img img{width:100%;height:100%;object-fit:cover;}
-.why-img-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,13,22,.75) 0%,transparent 55%);}
-.why-card-foot{position:absolute;bottom:0;left:0;right:0;padding:var(--s-24);}
-.esa-badge{display:inline-flex;align-items:center;gap:var(--s-10);background:rgba(26,86,219,.85);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-12);padding:var(--s-12) var(--s-20);}
-.esa-badge strong{font-size:var(--t-14);font-weight:800;color:#fff;display:block;}
-.esa-badge span{font-size:var(--t-12);color:rgba(255,255,255,.7);}
-
-/* ═══════════════════════════════════════
-   PROCESS — shadow-only hover, no transform
-═══════════════════════════════════════ */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-20);position:relative;}
-.proc-grid::before{content:'';position:absolute;top:28px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);height:2px;background:linear-gradient(90deg,var(--p) 0%,var(--a) 100%);opacity:.3;}
-.proc-card{background:var(--ink-000);border:1px solid var(--ink-100);border-radius:var(--r-16);padding:var(--s-24) var(--s-20);text-align:center;position:relative;transition:box-shadow .35s var(--ease),border-color .22s;}
-.proc-card:hover{box-shadow:var(--sh-md);border-color:rgba(26,86,219,.2);}
-.proc-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--p) 0%,var(--a) 100%);font-family:var(--fd);font-size:var(--t-20);font-weight:900;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s-20);box-shadow:0 6px 20px var(--p-glow);}
-.proc-card h4{font-size:var(--t-16);font-weight:800;color:var(--ink-900);margin-bottom:var(--s-8);}
-.proc-card p{font-size:var(--t-14);color:var(--ink-400);line-height:1.65;}
-
-/* ═══════════════════════════════════════
-   GUARANTEE
-═══════════════════════════════════════ */
-.guar-row{display:flex;align-items:stretch;background:var(--ink-750);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-20);overflow:hidden;}
-.guar-main{flex:1;padding:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:1fr 1fr;gap:var(--s-20);}
-.guar-aside{width:240px;flex-shrink:0;background:linear-gradient(135deg,var(--a) 0%,#d97706 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--s-32) var(--s-24);text-align:center;}
-.ga-ico{color:rgba(255,255,255,.9);margin-bottom:var(--s-12);}
-.ga-big{font-family:var(--fd);font-size:var(--t-48);font-weight:900;color:#fff;line-height:1;}
-.ga-lbl{font-size:var(--t-13);font-weight:700;color:rgba(255,255,255,.8);margin-top:var(--s-4);}
-.guar-pt{display:flex;gap:var(--s-14);}
-.guar-pt-ico{width:42px;height:42px;flex-shrink:0;background:var(--p-gl);border-radius:var(--r-10);display:flex;align-items:center;justify-content:center;color:var(--p);}
-.guar-pt h4{font-size:var(--t-15);font-weight:700;color:#fff;margin-bottom:3px;}
-.guar-pt p{font-size:var(--t-13);color:var(--ink-400);line-height:1.6;}
-
-/* ═══════════════════════════════════════
-   BRANDS
-═══════════════════════════════════════ */
-#brands{background:var(--ink-050);border-top:1px solid var(--ink-100);border-bottom:1px solid var(--ink-100);padding:var(--s-40) 0;}
-.brands-label{text-align:center;font-size:var(--t-11);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-300);margin-bottom:var(--s-24);}
-.brands-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--s-12);}
-.brand-badge{display:flex;align-items:center;gap:var(--s-10);background:var(--ink-000);border:1.5px solid var(--ink-100);border-radius:var(--r-10);padding:var(--s-12) var(--s-20);font-size:var(--t-14);font-weight:700;color:var(--ink-600);transition:border-color .2s,box-shadow .2s,color .2s;}
-.brand-badge:hover{border-color:var(--p);box-shadow:var(--sh-sm);color:var(--p);}
-
-/* ═══════════════════════════════════════
-   REVIEWS — shadow-only hover, no transform
-═══════════════════════════════════════ */
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-20);}
-.rev-card{
-  background:var(--ink-000);border:1px solid var(--ink-100);
-  border-radius:var(--r-20);padding:clamp(1.5rem,3vw,2rem);
-  box-shadow:var(--sh-sm);position:relative;overflow:hidden;
-  transition:box-shadow .35s var(--ease),border-color .22s;
-  /* min-height ensures consistent card height regardless of quote length */
-  min-height:280px;display:flex;flex-direction:column;
-}
-.rev-card:hover{box-shadow:var(--sh-lg);border-color:var(--ink-200);}
-.rev-card::before{content:'\201C';position:absolute;top:.1rem;right:1rem;font-size:5rem;line-height:1;color:var(--p-lt);font-family:Georgia,serif;pointer-events:none;}
-.rev-s{color:var(--a);font-size:.9rem;letter-spacing:3px;margin-bottom:var(--s-14);}
-.rev-txt{font-size:var(--t-15);color:var(--ink-500);line-height:1.8;font-style:italic;margin-bottom:var(--s-20);flex:1;}
-.rev-by{display:flex;align-items:center;gap:var(--s-12);padding-top:var(--s-16);border-top:1px solid var(--ink-100);margin-top:auto;}
-.rev-ava{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--p) 0%,var(--a) 100%);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:var(--t-16);color:#fff;}
-.rev-nm{font-size:var(--t-14);font-weight:700;color:var(--ink-900);}
-.rev-loc{font-size:var(--t-12);color:var(--ink-300);margin-top:2px;}
-.rev-agg{text-align:center;margin-bottom:clamp(2rem,5vw,3.5rem);}
-.rev-big{font-family:var(--fd);font-size:clamp(3rem,8vw,5.5rem);font-weight:900;color:var(--ink-900);line-height:1;}
-.rev-stars{color:var(--a);font-size:1.3rem;letter-spacing:4px;margin:var(--s-8) 0;}
-.rev-ct{color:var(--ink-300);font-size:var(--t-14);}
-
-/* ═══════════════════════════════════════
-   SERVICE AREA
-═══════════════════════════════════════ */
-.area-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s-10);margin-top:var(--s-32);}
-.area-chip{background:var(--ink-000);border:1.5px solid var(--ink-100);border-radius:var(--r-f);padding:var(--s-8) var(--s-20);font-size:var(--t-14);font-weight:600;color:var(--ink-600);transition:border-color .2s,color .2s;}
-.area-chip:hover{border-color:var(--p);color:var(--p);}
-.area-chip.prime{background:var(--p-lt);border-color:rgba(26,86,219,.28);color:var(--p);font-weight:700;}
-
-/* ═══════════════════════════════════════
-   FAQ
-═══════════════════════════════════════ */
-.faq-list{max-width:740px;margin-inline:auto;}
-.faq-item{border:1px solid var(--ink-100);border-radius:var(--r-12);margin-bottom:var(--s-10);overflow:hidden;transition:box-shadow .22s,border-color .22s;}
-.faq-item.open{box-shadow:var(--sh-md);border-color:rgba(26,86,219,.22);}
-.faq-btn{width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:var(--s-16);padding:var(--s-20) var(--s-24);font-size:var(--t-15);font-weight:700;color:var(--ink-900);background:var(--ink-000);cursor:pointer;transition:background .15s;line-height:1.4;}
-.faq-btn:hover{background:var(--ink-050);}
-.faq-item.open .faq-btn{background:var(--p-lt);color:var(--p-dk);}
-.faq-chev{width:26px;height:26px;flex-shrink:0;background:var(--ink-050);border-radius:var(--r-6);display:flex;align-items:center;justify-content:center;color:var(--ink-400);font-size:.65rem;transition:transform .38s var(--ease),background .22s,color .22s;}
-.faq-item.open .faq-chev{transform:rotate(180deg);background:var(--p);color:#fff;}
-.faq-bw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease);}
-.faq-item.open .faq-bw{grid-template-rows:1fr;}
-.faq-bi{overflow:hidden;}
-.faq-body{padding:0 var(--s-24) var(--s-20);font-size:var(--t-15);color:var(--ink-500);line-height:1.8;}
-
-/* ═══════════════════════════════════════
-   QUOTE SECTION GRID — responsive class
-═══════════════════════════════════════ */
-.quote-layout{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(2.5rem,6vw,5rem);
-  align-items:start;
-}
-@media(max-width:820px){
-  .quote-layout{grid-template-columns:1fr;}
-}
-
-/* ═══════════════════════════════════════
-   FINAL CTA
-═══════════════════════════════════════ */
-#final-cta{position:relative;background:var(--ink-900);padding:clamp(4rem,10vw,7rem) 0;text-align:center;overflow:hidden;}
-#final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(26,86,219,.1) 0%,transparent 65%);}
-#final-cta::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;}
-.fca{position:relative;z-index:1;}
-.fca-h{font-family:var(--fd);font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1.06;margin-bottom:var(--s-16);}
-.fca-h .acc{color:var(--a);}
-.fca-p{color:var(--ink-300);font-size:var(--t-18);max-width:480px;margin:0 auto var(--s-12);}
-.fca-phone{display:block;font-family:var(--fd);font-size:clamp(1.75rem,5vw,3.5rem);font-weight:900;color:#fff;letter-spacing:-.03em;margin:var(--s-28) auto var(--s-32);text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(255,255,255,.3);transition:text-decoration-color .2s;}
-.fca-phone:hover{text-decoration-color:#fff;}
-.fca-btns{display:flex;justify-content:center;gap:var(--s-14);flex-wrap:wrap;}
-.esa-pill{display:inline-flex;align-items:center;gap:var(--s-10);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-f);padding:var(--s-10) var(--s-20);font-size:var(--t-13);color:var(--ink-300);font-weight:600;margin-top:var(--s-24);}
-
-/* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
-footer{background:var(--ink-950);padding:clamp(3rem,6vw,5rem) 0 clamp(1.5rem,3vw,2.5rem);}
-.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.25fr;gap:clamp(1.5rem,4vw,3.5rem);padding-bottom:clamp(2rem,4vw,3rem);margin-bottom:clamp(1.5rem,3vw,2.5rem);border-bottom:1px solid rgba(255,255,255,.06);}
-.ft-brand p{color:var(--ink-400);font-size:var(--t-14);line-height:1.7;margin-top:var(--s-16);max-width:260px;}
-.ft-socials{display:flex;gap:var(--s-10);margin-top:var(--s-20);}
-.ft-soc{width:34px;height:34px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-8);display:flex;align-items:center;justify-content:center;color:var(--ink-400);transition:background .2s,color .15s,border-color .2s;}
-.ft-soc:hover{background:var(--p);color:#fff;border-color:var(--p);}
-.ft-col h5{font-size:var(--t-13);font-weight:700;color:#fff;letter-spacing:.02em;margin-bottom:var(--s-20);}
-.ft-col ul{display:flex;flex-direction:column;gap:var(--s-12);}
-.ft-col ul a{color:var(--ink-400);font-size:var(--t-14);transition:color .15s;}
-.ft-col ul a:hover{color:#fff;}
-.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s-12);}
-.ft-copy{color:var(--ink-500);font-size:var(--t-12);}
-.ft-links{display:flex;gap:var(--s-20);}
-.ft-links a{color:var(--ink-500);font-size:var(--t-12);transition:color .15s;}
-.ft-links a:hover{color:#fff;}
-
-/* ═══════════════════════════════════════
-   MOBILE STICKY BAR
-═══════════════════════════════════════ */
-#mob-bar{
-  display:none;position:fixed;bottom:0;left:0;right:0;z-index:500;
-  background:rgba(8,13,22,.97);backdrop-filter:blur(14px);
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:var(--s-12) var(--s-16);gap:var(--s-10);
-  transform:translateY(100%);
-  transition:transform .42s var(--ease);
-  /* safe-area fallback for notched phones */
-  padding-bottom:max(var(--s-12), calc(var(--s-12) + env(safe-area-inset-bottom, 0px)));
-}
-#mob-bar.visible{transform:translateY(0);}
-#mob-bar a{flex:1;text-align:center;}
-
-/* ═══════════════════════════════════════
-   PROMO STRIP
-═══════════════════════════════════════ */
-#promo{background:linear-gradient(135deg,var(--p-dk) 0%,var(--p) 60%,#4f8ef7 100%);padding:var(--s-20) var(--pad);position:relative;overflow:hidden;}
-#promo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,255,255,.08) 0%,transparent 60%);}
-.promo-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s-16);flex-wrap:wrap;max-width:var(--max);margin-inline:auto;position:relative;z-index:1;}
-.promo-lft{display:flex;align-items:center;gap:var(--s-16);}
-.promo-tag{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.32);border-radius:var(--r-8);padding:var(--s-6) var(--s-14);font-size:var(--t-12);font-weight:800;color:#fff;letter-spacing:.03em;}
-.promo-copy strong{color:#fff;font-weight:800;font-size:var(--t-15);display:block;}
-.promo-copy span{color:rgba(255,255,255,.75);font-size:var(--t-13);}
-
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
-@media(max-width:1080px){
-  .svc-grid{grid-template-columns:repeat(2,1fr);}
-  .proc-grid{grid-template-columns:repeat(2,1fr);}
-  .proc-grid::before{display:none;}
-  .ft-grid{grid-template-columns:1fr 1fr;}
-  .guar-aside{width:180px;}
-  .gallery-grid{grid-template-columns:repeat(3,1fr);}
-  .gallery-grid .g-big{grid-column:span 1;grid-row:span 1;}
-}
-@media(max-width:820px){
-  .ph-block{grid-template-columns:1fr;}
-  .ph-block.rev{direction:ltr;}
-  .why-grid{grid-template-columns:1fr;}
-  .why-img{aspect-ratio:4/3;max-height:360px;}
-  .rev-grid{grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  nav{display:none;}
-  .hdr-right .btn{display:none;}
-  #mob-bar{display:flex;}
-  body{
-    padding-bottom:64px;
-    padding-bottom:max(64px, calc(64px + env(safe-area-inset-bottom, 0px)));
-  }
-  .guar-row{flex-direction:column;}
-  .guar-aside{width:100%;padding:var(--s-24);}
-  .guar-main{grid-template-columns:1fr;}
-  .ft-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .svc-grid{grid-template-columns:1fr;}
-  .hero-ctas{flex-direction:column;}
-  .hero-ctas .btn{width:100%;}
-  .fca-btns{flex-direction:column;align-items:center;}
-  .ft-grid{grid-template-columns:1fr;}
-  #topbar{justify-content:flex-start;overflow-x:auto;font-size:var(--t-12);}
-  .promo-in{flex-direction:column;align-items:flex-start;}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tri-City Potlight &amp; Electrical — Kitchener's #1 potlight specialists. ESA-licensed electricians for potlights, panel upgrades, EV chargers, and wiring. Call (519) 555-0199." />
+  <meta name="theme-color" content="#080D16" />
+  <link rel="canonical" href="https://grandriverdigital.github.io/tri-city-electrical-demo/" />
+  <title>Tri-City Potlight &amp; Electrical | Kitchener's #1 Potlight Specialists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Electrician","name":"Tri-City Potlight & Electrical","telephone":"(519) 555-0199","email":"info@tricityelectrical.ca","address":{"@type":"PostalAddress","addressLocality":"Kitchener","addressRegion":"ON","addressCountry":"CA"},"foundingDate":"2009","openingHours":"Mo-Fr 08:00-18:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"312","bestRating":"5"}}</script>
 </head>
 <body>
-
-<div id="topbar" role="region" aria-label="Emergency contact">
-  <span><span class="tb-pulse" aria-hidden="true"></span><strong>24/7 Emergency Electrical — Licensed ESA Technicians On Call</strong></span>
-  <span class="tb-pill">⚡ Free Estimates</span>
-  <a id="tb-ph" href="#" class="tb-link"></a>
-</div>
-
-<header id="hdr">
-  <div class="hdr-in">
-    <a href="#" class="logo" aria-label="Tri-City Potlight & Electrical — home">
-      <div class="logo-mark" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      </div>
-      <div>
-        <div class="logo-name" id="logo-name"></div>
-        <div class="logo-tag" id="logo-tag"></div>
-      </div>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="hdr-right">
-      <a id="hdr-ph" href="#" class="hdr-phone" aria-label="Call us now">
-        <span class="ph-wrap" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </span>
-        <span id="hdr-num"></span>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="topbar" role="region" aria-label="Contact and certifications">
+    <span><span class="topbar__dot" aria-hidden="true"></span><strong>ESA-Licensed Electricians — Kitchener, Cambridge &amp; Waterloo Region</strong></span>
+    <span class="topbar__pill">ESA #7012345</span>
+    <a href="tel:5195550199" class="topbar__link">(519) 555-0199</a>
+  </div>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./" class="logo" aria-label="Tri-City Potlight & Electrical — home">
+        <div class="logo__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="logo__text">
+          <div class="logo__name">Tri-City <span>Potlight &amp; Electrical</span></div>
+          <div class="logo__tagline">Kitchener's #1 Potlight Specialists</div>
+        </div>
       </a>
-      <a href="#quote" class="btn btn-a btn-sm">Free Estimate</a>
-    </div>
-  </div>
-</header>
-
-<section id="hero" aria-labelledby="h1">
-  <div class="hero-bg">
-    <img id="hero-img" src="" alt="Modern living room with bright LED recessed pot lights installed in ceiling" loading="eager" fetchpriority="high" />
-  </div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-pill ha t1">
-        <span class="hdot" aria-hidden="true"></span>
-        <span id="hero-city-pill"></span>
-      </div>
-      <h1 id="h1" class="ha t2">
-        <span id="h1a"></span>
-        <span class="lline" id="h1b"></span>
-      </h1>
-      <p class="hero-sub ha t3" id="hero-sub"></p>
-      <div class="hero-ctas ha t4">
-        <a id="hero-call" href="#" class="btn btn-a btn-lg">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now — <span id="hero-num"></span>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <ul class="nav__list" role="list">
+          <li><a href="./" class="nav__link">Home</a></li>
+          <li><a href="about/" class="nav__link">About</a></li>
+          <li><a href="services/" class="nav__link">Services</a></li>
+          <li><a href="projects/" class="nav__link">Projects</a></li>
+          <li><a href="contact/" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact/" class="nav__mobile-cta">Get a Free Quote</a>
+      </nav>
+      <div class="header__right">
+        <a href="tel:5195550199" class="header__phone">
+          <span class="header__phone-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          (519) 555-0199
         </a>
-        <a href="#quote" class="btn btn-g btn-lg">Get Free Estimate</a>
+        <a href="contact/" class="btn btn--accent btn--sm">Free Quote</a>
       </div>
-      <div class="trust-row ha t5" role="list" aria-label="Trust indicators">
-        <div class="tbadge" role="listitem"><span class="tbi" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>ESA Licensed</div>
-        <div class="tbadge" role="listitem"><span class="tbi" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Fully Insured</div>
-        <div class="tbadge" role="listitem"><span class="tbi" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span id="hero-rat"></span> on Google</div>
-        <div class="tbadge" role="listitem"><span class="tbi" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Lifetime Labour Warranty</div>
-        <div class="tbadge" role="listitem"><span class="tbi" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No-Damage Guarantee</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav">
+        <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section aria-labelledby="hero-h" style="position:relative;min-height:clamp(560px,88vh,820px);display:flex;align-items:center;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:var(--ink-900);">
+        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1600&q=80" alt="Modern kitchen with recessed potlights installed" style="width:100%;height:100%;object-fit:cover;opacity:.35;" loading="eager" fetchpriority="high" onerror="this.style.display='none'" />
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,22,.95) 0%,rgba(8,13,22,.65) 55%,rgba(8,13,22,.28) 100%),linear-gradient(0deg,rgba(8,13,22,.8) 0%,transparent 50%);"></div>
+        <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,86,219,.09) 1px,transparent 1px);background-size:48px 48px;"></div>
       </div>
-    </div>
-  </div>
-  <div class="hero-scroll" aria-hidden="true">
-    <div class="scroll-dot"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<div id="stats-bar" role="region" aria-label="Company statistics">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat-box"><div class="stat-n" id="cn-jobs">0<span class="u">+</span></div><div class="stat-l">Projects Completed</div></div>
-      <div class="stat-box"><div class="stat-n" id="cn-res">0<span class="u">+</span></div><div class="stat-l">Residential Installs</div></div>
-      <div class="stat-box"><div class="stat-n" id="cn-yrs">0<span class="u">yr</span></div><div class="stat-l">In Business</div></div>
-      <div class="stat-box"><div class="stat-n">4.9<span class="u">★</span></div><div class="stat-l">Google Rating</div></div>
-    </div>
-  </div>
-</div>
-
-<div id="trust-bar" role="region" aria-label="Certifications">
-  <div class="tbar-items">
-    <div class="tbar-item"><span class="tbar-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>Google: <em id="tbar-rat"></em>★ (<span id="tbar-rev"></span>)</div>
-    <div class="tbar-sep" aria-hidden="true"></div>
-    <div class="tbar-item"><span class="tbar-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>ESA Licensed <em id="tbar-lic"></em></div>
-    <div class="tbar-sep" aria-hidden="true"></div>
-    <div class="tbar-item"><span class="tbar-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>Lifetime Labour Warranty</div>
-    <div class="tbar-sep" aria-hidden="true"></div>
-    <div class="tbar-item"><span class="tbar-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><em id="tbar-yrs"></em> Years Serving <em id="tbar-reg"></em></div>
-    <div class="tbar-sep" aria-hidden="true"></div>
-    <div class="tbar-item"><span class="tbar-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>Free Estimates</div>
-  </div>
-</div>
-
-<div id="promo" role="region" aria-label="Current promotion">
-  <div class="promo-in">
-    <div class="promo-lft">
-      <span class="promo-tag">⚡ Limited Offer</span>
-      <div class="promo-copy">
-        <strong>10 Pot Lights Installed — Only $499 (reg. $699)</strong>
-        <span>Includes LED bulbs, dimmers, and ESA permit. Book before month-end.</span>
-      </div>
-    </div>
-    <a href="#quote" class="btn btn-w btn-sm">Claim Offer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </div>
-</div>
-
-<section class="sec sec-lt" id="services" aria-labelledby="svc-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">What We Do</div>
-      <h2 class="sh" id="svc-heading" id="svc-h"></h2>
-      <p class="ss cx">Every project permitted, inspected, and backed by our lifetime labour warranty. No shortcuts.</p>
-    </div>
-    <div class="svc-grid" id="svc-grid" role="list"></div>
-  </div>
-</section>
-
-<section class="sec" id="projects" aria-labelledby="proj-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">Recent Work</div>
-      <h2 class="sh" id="proj-heading">Projects Across the Region</h2>
-      <p class="ss cx">Over 4,800 jobs completed in Kitchener, Cambridge, Waterloo and surrounding areas.</p>
-    </div>
-    <div class="gallery-grid sr" role="list" aria-label="Project gallery" id="gal-grid"></div>
-  </div>
-</section>
-
-<section id="ba-section" aria-labelledby="ba-heading">
-  <div class="wrap ba-wrap">
-    <div class="shd sr">
-      <div class="eyebrow lt">The Difference</div>
-      <h2 class="sh lt" id="ba-heading">See the Transformation</h2>
-      <p class="ss lt cx">Drag to compare. The same room — before and after LED pot light installation.</p>
-    </div>
-    <div class="ba-container sr" id="ba-container" role="figure" aria-label="Before and after pot light installation comparison">
-      <div class="ba-after">
-        <img id="ba-after-img" src="" alt="After: bright modern living room with LED recessed pot lights" loading="lazy" />
-      </div>
-      <div class="ba-before" id="ba-before">
-        <img id="ba-before-img" src="" alt="Before: dim room with old lighting before pot light installation" loading="lazy" />
-      </div>
-      <div class="ba-divider" id="ba-divider" aria-hidden="true">
-        <div class="ba-handle" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="12" x2="3" y2="12"/><polyline points="8 7 3 12 8 17"/><polyline points="16 17 21 12 16 7"/></svg>
-        </div>
-      </div>
-      <span class="ba-label ba-label-b" aria-hidden="true">BEFORE</span>
-      <span class="ba-label ba-label-a" aria-hidden="true">AFTER</span>
-    </div>
-    <p class="ba-hint sr" aria-hidden="true">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="12" x2="3" y2="12"/><polyline points="8 7 3 12 8 17"/><polyline points="16 17 21 12 16 7"/></svg>
-      Drag the slider to compare
-    </p>
-  </div>
-</section>
-
-<section class="sec" id="ph-section" aria-labelledby="ph-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">Case Studies</div>
-      <h2 class="sh" id="ph-heading">Featured Projects</h2>
-    </div>
-
-    <div class="ph-block sr">
-      <div class="ph-img">
-        <img id="ph1-img" src="" alt="Kitchen pot light installation project" loading="lazy" />
-        <div class="ph-badge"><strong>12</strong><span>Lights Installed</span></div>
-      </div>
-      <div class="ph-copy">
-        <div class="ph-tag">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Kitchen Renovation — Kitchener
-        </div>
-        <h3 class="ph-h">Full Kitchen Relight with Lutron Smart Dimmers</h3>
-        <p class="ph-p">Client had aging fluorescent tubes over the island and a single ceiling box. We installed 12 4-inch LED potlights on two zones — task and ambient — with Lutron Caseta dimmers and app control. Zero drywall damage.</p>
-        <div class="ph-checks">
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Full ESA permit and inspection</div>
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Smart 2-zone Lutron dimming</div>
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Completed in 4 hours, no mess</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ph-block rev sr">
-      <div class="ph-copy">
-        <div class="ph-tag">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Basement Finishing — Cambridge
-        </div>
-        <h3 class="ph-h">Basement Conversion: 24 Potlights + New Sub-Panel</h3>
-        <p class="ph-p">Full basement finishing package — we wired 24 6-inch LED potlights across a 1,400 sqft open-concept basement, installed a 60A sub-panel, and ran dedicated circuits for a home office and gym. ESA inspected and passed.</p>
-        <div class="ph-checks">
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>24 lights across 3 dimmer zones</div>
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>60A sub-panel with dedicated circuits</div>
-          <div class="ph-check"><span class="ck" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>ESA permit pulled and passed</div>
-        </div>
-      </div>
-      <div class="ph-img">
-        <img id="ph2-img" src="" alt="Basement electrical installation project" loading="lazy" />
-        <div class="ph-badge"><strong>24</strong><span>Lights Installed</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="sec sec-dk" id="why-us" aria-labelledby="why-heading">
-  <div class="wrap">
-    <div class="why-grid">
-      <div>
-        <div class="eyebrow lt" aria-hidden="true">Why Tri-City</div>
-        <h2 class="sh lt sr" id="why-heading">The Region's Most Trusted Electrical Team</h2>
-        <p class="ss lt sr">Licensed, insured, and ESA-certified. We pull permits, schedule inspections, and clean up after ourselves. Every time.</p>
-        <div class="why-feats" role="list">
-          <div class="why-feat sr d1" role="listitem">
-            <div class="why-feat-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div>
-              <h4>ESA Licensed Electricians</h4>
-              <p>Every technician is ESA-licensed and carries full liability insurance. No uncertified sub-trades — ever.</p>
-            </div>
+      <div class="container" style="position:relative;z-index:2;padding-block:clamp(3rem,8vw,5rem);width:100%;">
+        <div style="max-width:620px;">
+          <div class="page-hero__badge ha t1">
+            <span style="width:6px;height:6px;background:var(--a);border-radius:50%;display:inline-block;" aria-hidden="true"></span>
+            Kitchener's #1 Potlight Specialists
           </div>
-          <div class="why-feat sr d2" role="listitem">
-            <div class="why-feat-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <div>
-              <h4>Lifetime Labour Warranty</h4>
-              <p>If anything we installed fails due to our workmanship, we fix it free. No asterisks, no expiry.</p>
-            </div>
+          <h1 id="hero-h" class="ha t2" style="font-family:var(--fd);font-size:clamp(2.25rem,5.8vw,4.25rem);font-weight:900;color:#fff;line-height:1.06;letter-spacing:-.04em;margin-bottom:1.25rem;">
+            Transform Your Home<br>
+            <span style="background:linear-gradient(90deg,#fff 0%,#adc4f7 55%,var(--a) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">With Perfect Lighting.</span>
+          </h1>
+          <p class="ha t3" style="font-size:clamp(1rem,2vw,1.125rem);color:rgba(255,255,255,.72);line-height:1.75;max-width:500px;margin-bottom:2rem;">ESA-licensed electricians serving Kitchener, Cambridge, and Waterloo Region since 2009. Potlight specialists, panel upgrades, EV chargers, and full electrical services — done right, done safe.</p>
+          <div class="ha t4 hero__ctas" style="display:flex;flex-wrap:wrap;gap:.875rem;margin-bottom:2rem;">
+            <a href="contact/" class="btn btn--accent btn--lg">Get a Free Quote</a>
+            <a href="tel:5195550199" class="btn btn--ghost btn--lg">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (519) 555-0199
+            </a>
           </div>
-          <div class="why-feat sr d3" role="listitem">
-            <div class="why-feat-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div>
-              <h4>On Time or It's Free</h4>
-              <p>We show up in the agreed window or your service call fee is waived. Respect for your schedule is non-negotiable.</p>
-            </div>
-          </div>
-          <div class="why-feat sr d4" role="listitem">
-            <div class="why-feat-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div>
-              <h4>No-Damage Guarantee</h4>
-              <p>We install potlights without destructive attic access where possible. If we damage anything, we make it right at our cost.</p>
-            </div>
+          <div class="ha t5" style="display:flex;flex-wrap:wrap;gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);">
+            <span style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);"><span style="width:18px;height:18px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>ESA Licensed — #7012345</span>
+            <span style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);"><span style="width:18px;height:18px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>4.9&#9733; (312 Reviews)</span>
+            <span style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);"><span style="width:18px;height:18px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>WSIB Covered</span>
+            <span style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.65);"><span style="width:18px;height:18px;background:rgba(16,185,129,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Serving the Region Since 2009</span>
           </div>
         </div>
       </div>
-      <div class="why-img sr">
-        <img id="team-img" src="" alt="Licensed electrician installing LED pot lights" loading="lazy" />
-        <div class="why-img-overlay" aria-hidden="true"></div>
-        <div class="why-card-foot">
-          <div class="esa-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            <div>
-              <strong id="why-lic"></strong>
-              <span>ESA Certified — Ontario</span>
-            </div>
-          </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar" role="region" aria-label="Company statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-box"><div class="stat-num"><span data-count="5400" data-suffix="+">5,400+</span></div><div class="stat-label">Potlights Installed</div></div>
+          <div class="stat-box"><div class="stat-num"><span data-count="15" data-suffix=" yrs">15 yrs</span></div><div class="stat-label">Serving Tri-City</div></div>
+          <div class="stat-box"><div class="stat-num">4.9<span>&#9733;</span></div><div class="stat-label">Google Rating</div></div>
+          <div class="stat-box"><div class="stat-num"><span data-count="312" data-suffix="+">312+</span></div><div class="stat-label">Verified Reviews</div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="sec" id="process" aria-labelledby="proc-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">How It Works</div>
-      <h2 class="sh" id="proc-heading">4 Steps to Brighter Rooms</h2>
-      <p class="ss cx">From your first call to the ESA sign-off, we handle everything.</p>
-    </div>
-    <div class="proc-grid">
-      <div class="proc-card sr d1">
-        <div class="proc-num" aria-hidden="true">1</div>
-        <h4>Free Estimate</h4>
-        <p>We visit your home, assess ceiling type and layout, and give you a detailed written quote. No surprises.</p>
-      </div>
-      <div class="proc-card sr d2">
-        <div class="proc-num" aria-hidden="true">2</div>
-        <h4>Permit Pulled</h4>
-        <p>We pull all required ESA permits before any work begins. Permitted work protects your home insurance.</p>
-      </div>
-      <div class="proc-card sr d3">
-        <div class="proc-num" aria-hidden="true">3</div>
-        <h4>Clean Installation</h4>
-        <p>Lights go in with zero drywall damage in most cases. We lay drop sheets and vacuum before we leave.</p>
-      </div>
-      <div class="proc-card sr d4">
-        <div class="proc-num" aria-hidden="true">4</div>
-        <h4>ESA Inspection</h4>
-        <p>A certified ESA inspector signs off on all work. You get a copy for your records and mortgage files.</p>
+    <!-- TRUST BAR -->
+    <div class="trust-bar" role="region" aria-label="Certifications">
+      <div class="trust-bar__items">
+        <div class="trust-item"><span class="trust-item__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><em>ESA Licensed</em> — #7012345</div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item"><span class="trust-item__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>Google: <em>4.9&#9733; (312 reviews)</em></div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item"><span class="trust-item__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><em>WSIB Covered</em> — $2M Liability</div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item"><span class="trust-item__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><em>EV Charger</em> Certified Installers</div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item"><span class="trust-item__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>Serving the Region Since <em>2009</em></div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="sec sec-lt" id="guarantee" aria-labelledby="guar-heading">
-  <div class="wrap">
-    <div class="guar-row sr">
-      <div class="guar-main">
-        <div class="guar-pt">
-          <div class="guar-pt-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-          <div><h4>Lifetime Labour Warranty</h4><p>Any workmanship defect, we fix it. Period. No expiry date on this guarantee.</p></div>
+    <!-- SERVICES PREVIEW -->
+    <section class="section" aria-labelledby="svc-h">
+      <div class="container">
+        <div class="section-header sr">
+          <div class="eyebrow">What We Do</div>
+          <h2 class="section-heading" id="svc-h">Electrical Services Done Right</h2>
+          <p class="section-sub section-sub--center">From single potlight installs to full panel replacements — ESA-licensed electricians with a written quote before we start, every time.</p>
         </div>
-        <div class="guar-pt">
-          <div class="guar-pt-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <div><h4>5-Year Product Warranty</h4><p>All LED fixtures we supply are warrantied for 5 years against defects. Parts and replacement included.</p></div>
+        <div class="services-grid" role="list">
+          <div class="svc-card sr d1" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+            <div class="svc-card__badge">Most Popular</div>
+            <h3>Potlight Installation</h3>
+            <p>Recessed LED potlights for kitchens, living rooms, bedrooms, and basements. Flawless placement, clean drywall finish, no visible wiring.</p>
+            <a href="services/#potlights" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
+          <div class="svc-card sr d2" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M17 7h5M2 17h5M17 17h5"/></svg></div>
+            <div class="svc-card__badge">Safety Critical</div>
+            <h3>Panel Upgrades</h3>
+            <p>200A upgrades, sub-panel installation, breaker replacement, and ESA inspections. Meet today's code and protect your home.</p>
+            <a href="services/#panels" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
+          <div class="svc-card sr d3" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="svc-card__badge">EV Ready</div>
+            <h3>EV Charger Installation</h3>
+            <p>Level 2 home charger installation for all major EV brands. Permit pulled, ESA-inspected, and ready to charge overnight.</p>
+            <a href="services/#ev-chargers" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
+          <div class="svc-card sr d1" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="svc-card__badge">Reno &amp; New Builds</div>
+            <h3>Wiring &amp; Rewiring</h3>
+            <p>New circuits, renovation wiring, knob-and-tube replacement, and rough-in for new builds. All work permitted and inspected.</p>
+            <a href="services/#wiring" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
+          <div class="svc-card sr d2" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+            <div class="svc-card__badge">Fixtures &amp; Switches</div>
+            <h3>Outlets, Switches &amp; Fixtures</h3>
+            <p>Dimmer switches, GFCI outlets, USB outlets, fan installation, and light fixture replacement. Upgrades completed in a single visit.</p>
+            <a href="services/#outlets" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
+          <div class="svc-card sr d3" role="listitem"><div class="svc-card__body">
+            <div class="svc-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <div class="svc-card__badge">Outdoor &amp; Landscape</div>
+            <h3>Exterior &amp; Landscape Lighting</h3>
+            <p>Soffit lights, pathway lighting, pergola wiring, and outdoor outlet installation. Enhance your curb appeal and outdoor living space.</p>
+            <a href="services/#exterior" class="svc-card__link">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div></div>
         </div>
-        <div class="guar-pt">
-          <div class="guar-pt-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-          <div><h4>No-Damage Promise</h4><p>We repair or replace any surface we damage during installation at zero cost to you.</p></div>
-        </div>
-        <div class="guar-pt">
-          <div class="guar-pt-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-          <div><h4>Price Match Guarantee</h4><p>Find a lower written quote from an ESA-licensed competitor? We match it, no questions asked.</p></div>
-        </div>
-      </div>
-      <div class="guar-aside">
-        <div class="ga-ico" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="ga-big">100%</div>
-        <div class="ga-lbl">Satisfaction Guaranteed</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="brands" aria-label="Brands we install">
-  <div class="wrap">
-    <p class="brands-label">Brands We Install</p>
-    <div class="brands-row" role="list">
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Lutron Caseta</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Govee</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Kasa (TP-Link)</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Halo Lighting</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Leviton</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Square D</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Siemens</div>
-      <div class="brand-badge" role="listitem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>ChargePoint</div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="reviews" aria-labelledby="rev-heading">
-  <div class="wrap">
-    <div class="rev-agg sr">
-      <div class="rev-big" aria-label="4.9 stars">4.9</div>
-      <div class="rev-stars" aria-hidden="true">★★★★★</div>
-      <div class="rev-ct" id="rev-ct-text"></div>
-    </div>
-    <div class="shd sr"><div class="eyebrow">Reviews</div><h2 class="sh" id="rev-heading">What Our Customers Say</h2></div>
-    <div class="rev-grid" id="rev-grid" role="list" aria-label="Customer reviews"></div>
-  </div>
-</section>
-
-<section class="sec sec-lt" id="areas" aria-labelledby="areas-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">Service Area</div>
-      <h2 class="sh" id="areas-heading">Serving Waterloo Region and Beyond</h2>
-      <p class="ss cx">Based in Kitchener — on-site across the Region within 24 hours.</p>
-    </div>
-    <div class="area-chips sr" id="area-chips" role="list" aria-label="Service areas"></div>
-  </div>
-</section>
-
-<section class="sec" id="faq" aria-labelledby="faq-heading">
-  <div class="wrap">
-    <div class="shd sr">
-      <div class="eyebrow">FAQ</div>
-      <h2 class="sh" id="faq-heading">Common Questions</h2>
-    </div>
-    <div class="faq-list sr" id="faq-list" role="list"></div>
-  </div>
-</section>
-
-<section class="sec sec-lt" id="quote" aria-labelledby="quote-heading">
-  <div class="wrap">
-    <div class="quote-layout">
-      <div>
-        <div class="eyebrow" aria-hidden="true">Get a Free Estimate</div>
-        <h2 class="sh sr" id="quote-heading">Request Your Free Quote</h2>
-        <p class="ss sr">No obligation. We'll contact you within 2 business hours to discuss your project and schedule a walkthrough.</p>
-        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;">
-          <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:var(--ink-050);border:1px solid var(--ink-100);border-radius:var(--r-12);">
-            <div style="width:36px;height:36px;flex-shrink:0;background:var(--p-lt);border-radius:var(--r-8);display:flex;align-items:center;justify-content:center;color:var(--p);" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div>
-              <div style="font-size:.75rem;font-weight:700;color:var(--ink-300);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Call or Text</div>
-              <a id="form-ph" href="#" style="font-size:1.1rem;font-weight:800;color:var(--ink-900);"><span id="form-phnum"></span></a>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:var(--ink-050);border:1px solid var(--ink-100);border-radius:var(--r-12);">
-            <div style="width:36px;height:36px;flex-shrink:0;background:var(--p-lt);border-radius:var(--r-8);display:flex;align-items:center;justify-content:center;color:var(--p);" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div>
-              <div style="font-size:.75rem;font-weight:700;color:var(--ink-300);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Email</div>
-              <span id="form-email" style="font-size:.95rem;font-weight:700;color:var(--ink-900);"></span>
-            </div>
-          </div>
+        <div style="text-align:center;margin-top:2.5rem;" class="sr">
+          <a href="services/" class="btn btn--outline btn--lg">View All Services</a>
         </div>
       </div>
-      <div>
-        <form id="quote-form" novalidate style="background:var(--ink-000);border:1px solid var(--ink-100);border-radius:var(--r-20);padding:clamp(1.5rem,4vw,2.25rem);box-shadow:var(--sh-lg);">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:.875rem;">
-            <div>
-              <label for="f-name" style="display:block;font-size:.8125rem;font-weight:700;color:var(--ink-600);margin-bottom:.375rem;">Full Name *</label>
-              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jane Smith" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--ink-100);border-radius:var(--r-10);font-size:.9375rem;color:var(--ink-900);background:var(--ink-000);transition:border-color .2s,box-shadow .2s;outline:none;" />
-            </div>
-            <div>
-              <label for="f-phone" style="display:block;font-size:.8125rem;font-weight:700;color:var(--ink-600);margin-bottom:.375rem;">Phone *</label>
-              <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="(519) 555-0100" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--ink-100);border-radius:var(--r-10);font-size:.9375rem;color:var(--ink-900);background:var(--ink-000);transition:border-color .2s,box-shadow .2s;outline:none;" />
-            </div>
-          </div>
-          <div style="margin-bottom:.875rem;">
-            <label for="f-email" style="display:block;font-size:.8125rem;font-weight:700;color:var(--ink-600);margin-bottom:.375rem;">Email</label>
-            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="jane@example.com" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--ink-100);border-radius:var(--r-10);font-size:.9375rem;color:var(--ink-900);background:var(--ink-000);transition:border-color .2s,box-shadow .2s;outline:none;" />
-          </div>
-          <div style="margin-bottom:.875rem;">
-            <label for="f-service" style="display:block;font-size:.8125rem;font-weight:700;color:var(--ink-600);margin-bottom:.375rem;">Service Needed</label>
-            <select id="f-service" name="service" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--ink-100);border-radius:var(--r-10);font-size:.9375rem;color:var(--ink-900);background:var(--ink-000);transition:border-color .2s;outline:none;-webkit-appearance:none;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;">
-              <option value="">Select a service</option>
-              <option>Pot Light Installation</option>
-              <option>Panel Upgrade</option>
-              <option>EV Charger Installation</option>
-              <option>Smart Lighting</option>
-              <option>Troubleshooting / Repair</option>
-              <option>Commercial Electrical</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div style="margin-bottom:1.25rem;">
-            <label for="f-msg" style="display:block;font-size:.8125rem;font-weight:700;color:var(--ink-600);margin-bottom:.375rem;">Project Details</label>
-            <textarea id="f-msg" name="message" rows="3" placeholder="Describe your project — number of rooms, ceiling type, special requests..." style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--ink-100);border-radius:var(--r-10);font-size:.9375rem;color:var(--ink-900);background:var(--ink-000);transition:border-color .2s,box-shadow .2s;outline:none;resize:vertical;min-height:90px;"></textarea>
-          </div>
-          <button type="submit" class="btn btn-p btn-lg" id="quote-btn" style="width:100%;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Request Free Estimate
-          </button>
-          <p style="font-size:.75rem;color:var(--ink-300);text-align:center;margin-top:.875rem;line-height:1.5;">We respond within 2 business hours. No spam, no sales calls.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="final-cta" aria-labelledby="fca-heading">
-  <div class="wrap">
-    <div class="fca">
-      <h2 class="fca-h sr" id="fca-heading">Ready for Brighter Rooms?<br><span class="acc">Call Today — Free Estimate.</span></h2>
-      <p class="fca-p sr">Licensed. Insured. ESA Certified. Serving Waterloo Region since <span id="fca-yr"></span>.</p>
-      <a id="fca-ph" href="#" class="fca-phone sr"><span id="fca-call"></span></a>
-      <div class="fca-btns sr">
-        <a id="fca-call2" href="#" class="btn btn-a btn-lg">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now
-        </a>
-        <a href="#quote" class="btn btn-g btn-lg">Get Free Estimate</a>
-      </div>
-      <div class="esa-pill sr" role="status">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span id="fca-lic-pill"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer aria-label="Site footer">
-  <div class="wrap">
-    <div class="ft-grid">
-      <div class="ft-brand">
-        <div class="logo" style="margin-bottom:0;">
-          <div class="logo-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div class="logo-name" id="ft-logo"></div>
-        </div>
-        <p id="ft-tag"></p>
-        <div class="ft-socials" aria-label="Social media">
-          <a href="#" class="ft-soc" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="ft-soc" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="ft-soc" aria-label="Google Maps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg></a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#services">Pot Light Installation</a></li>
-          <li><a href="#services">Panel Upgrades</a></li>
-          <li><a href="#services">EV Charger Installation</a></li>
-          <li><a href="#services">Smart Lighting</a></li>
-          <li><a href="#services">Troubleshooting</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#why-us">About Us</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#guarantee">Our Guarantees</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a id="ft-ph" href="#"></a></li>
-          <li><a id="ft-em" href="#"></a></li>
-          <li><a href="#areas">Service Areas</a></li>
-          <li><a href="#quote">Free Estimate</a></li>
-        </ul>
-        <div style="margin-top:1rem;padding:.875rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-10);">
-          <div style="font-size:.75rem;font-weight:700;color:var(--ink-400);letter-spacing:.05em;margin-bottom:.25rem;">ESA LICENSE</div>
-          <div style="font-size:.875rem;font-weight:700;color:var(--ink-200);" id="ft-lic"></div>
-          <div style="font-size:.75rem;color:var(--ink-500);margin-top:.25rem;" id="ft-wsib"></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <div class="ft-copy" id="ft-copy"></div>
-      <div class="ft-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Sitemap</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Mobile sticky CTA bar -->
-<div id="mob-bar" role="region" aria-label="Quick contact">
-  <a id="mob-call" href="#" class="btn btn-r btn-sm" aria-label="Call now" style="flex:1;text-align:center;">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call Now
-  </a>
-  <a href="#quote" class="btn btn-a btn-sm" style="flex:1;text-align:center;">Free Estimate</a>
-</div>
-
-<script>
-(function(){
-'use strict';
-
-/* ── Utilities ────────────────────────────────────── */
-const $ = id => document.getElementById(id);
-const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-/* ── Populate DOM ────────────────────────────────── */
-(function populate(){
-  // Page meta
-  document.title = CO.name + ' | ' + CO.tagline;
-  document.querySelector('#pg-desc').content =
-    CO.name + ' — ' + CO.tagline + '. Serving ' + CO.region + '. ' + CO.years + ' years in business. ESA Licensed ' + CO.license + '.';
-
-  // JSON-LD structured data
-  const schema = {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name": CO.name,
-    "telephone": CO.phone,
-    "email": CO.email,
-    "address": { "@type":"PostalAddress","addressLocality":CO.city,"addressRegion":CO.province,"addressCountry":"CA" },
-    "url": window.location.origin + window.location.pathname,
-    "description": CO.tagline,
-    "foundingDate": CO.founded,
-    "aggregateRating": { "@type":"AggregateRating","ratingValue":CO.rating,"reviewCount": parseInt(CO.reviews), "bestRating":5 },
-    "openingHours": "Mo-Su 00:00-23:59",
-    "priceRange": "$$"
-  };
-  const sd = document.createElement('script');
-  sd.type = 'application/ld+json';
-  sd.textContent = JSON.stringify(schema);
-  document.head.appendChild(sd);
-
-  // OG tags
-  const og = [
-    ['og:title', CO.name],
-    ['og:description', CO.tagline],
-    ['og:type', 'website'],
-    ['og:image', CO.PHOTOS.hero],
-  ];
-  og.forEach(([p,c])=>{ const m=document.createElement('meta'); m.setAttribute('property',p); m.content=c; document.head.appendChild(m); });
-
-  // Tel href
-  const tel = 'tel:+1' + CO.phoneTel;
-
-  // Text nodes
-  [['hdr-num', CO.phone], ['hero-num', CO.phone], ['form-phnum', CO.phone],
-   ['tbar-rat', CO.ratingStr], ['tbar-rev', CO.reviews + ' reviews'], ['tbar-lic', CO.license],
-   ['tbar-yrs', CO.years], ['tbar-reg', CO.region], ['rev-ct-text', CO.reviews + ' verified Google reviews'],
-   ['why-lic', CO.license], ['fca-yr', CO.founded], ['fca-call', CO.phone],
-   ['ft-lic', CO.license], ['ft-wsib', CO.wsib], ['hero-rat', CO.ratingStr + ' stars']
-  ].forEach(([id,t])=>{ const e=$(id); if(e) e.textContent=t; });
-
-  // Hero pill
-  const pill = $('hero-city-pill');
-  if(pill) pill.textContent = CO.region + ' — ' + CO.years + ' Years Serving You';
-
-  // H1
-  const h1a = $('h1a'), h1b = $('h1b');
-  if(h1a) h1a.innerHTML = CO.city + '<span class="city"> Pot Lights &</span><br>';
-  if(h1b) h1b.textContent = 'Electrical Specialists';
-  const heroSub = $('hero-sub');
-  if(heroSub) heroSub.textContent = 'Licensed ESA electricians serving ' + CO.region + '. Pot lights, panel upgrades, EV chargers and smart lighting — permitted, inspected, and backed by a lifetime labour warranty.';
-
-  // Logo
-  const ln = $('logo-name');
-  if(ln){ ln.innerHTML = ''; const parts = CO.nameParts; ln.innerHTML = parts[0]+'<b> '+parts[1]+'</b>'; }
-  const lt = $('logo-tag');
-  if(lt) lt.textContent = CO.tagline;
-  const ftLogo = $('ft-logo');
-  if(ftLogo){ ftLogo.innerHTML = CO.nameParts[0]+'<b> '+CO.nameParts[1]+'</b>'; }
-  const ftTag = $('ft-tag');
-  if(ftTag) ftTag.textContent = CO.tagline + '. Serving ' + CO.region + ' since ' + CO.founded + '.';
-
-  // Hrefs
-  [['tb-ph', tel], ['hdr-ph', tel], ['hero-call', tel], ['form-ph', tel],
-   ['fca-ph', tel], ['fca-call2', tel], ['mob-call', tel], ['ft-ph', tel]
-  ].forEach(([id,h])=>{ const e=$(id); if(e) e.href=h; });
-  const tbPh = $('tb-ph'); if(tbPh) tbPh.textContent = CO.phone;
-  const ftPh = $('ft-ph'); if(ftPh) ftPh.textContent = CO.phone;
-  const ftEm = $('ft-em'); if(ftEm){ ftEm.href='mailto:'+CO.email; ftEm.textContent=CO.email; }
-
-  // ESA pill
-  const fcaPill = $('fca-lic-pill');
-  if(fcaPill) fcaPill.textContent = CO.license + ' | WSIB Covered | Fully Insured';
-
-  // Footer copyright
-  const ftCopy = $('ft-copy');
-  if(ftCopy) ftCopy.textContent = '\u00A9 ' + new Date().getFullYear() + ' ' + CO.name + '. All rights reserved. ' + CO.city + ', ' + CO.province + '.';
-
-  // Hero image
-  const heroImg = $('hero-img');
-  if(heroImg){ heroImg.src = CO.PHOTOS.hero; heroImg.onerror = function(){ this.style.display='none'; }; }
-
-  // Before/After images
-  const baAfter = $('ba-after-img');
-  if(baAfter){ baAfter.src = CO.PHOTOS.after; baAfter.onerror = function(){ this.closest('.ba-after').style.background='linear-gradient(135deg,#1e3a5f 0%,#2d5a8e 100%)'; this.style.display='none'; }; }
-  const baBefore = $('ba-before-img');
-  if(baBefore){ baBefore.src = CO.PHOTOS.before; baBefore.onerror = function(){ this.closest('.ba-before').style.background='linear-gradient(135deg,#2a2010 0%,#3d3018 100%)'; this.style.display='none'; }; }
-
-  // Project highlight images
-  [['ph1-img', CO.PHOTOS.ph1, 'Kitchen pot light installation'],
-   ['ph2-img', CO.PHOTOS.ph2, 'Basement electrical installation'],
-   ['team-img', CO.PHOTOS.team, 'Licensed electrician at work']
-  ].forEach(([id, src, alt])=>{
-    const e=$(id); if(!e) return;
-    e.src=src; e.alt=alt;
-    e.onerror = function(){ this.closest('.ph-img, .why-img').style.background='linear-gradient(140deg,var(--ink-700) 0%,var(--ink-600) 100%)'; this.style.display='none'; };
-  });
-
-  // Counters
-  $('cn-jobs').innerHTML = CO.jobs.toLocaleString() + '<span class="u">+</span>';
-  $('cn-res').innerHTML  = CO.residential.toLocaleString() + '<span class="u">+</span>';
-  $('cn-yrs').innerHTML  = CO.years + '<span class="u"></span>';
-
-  // Services grid
-  const ICONS = {
-    light:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
-    panel:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="16" y2="21"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',
-    ev:       '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="3"/><polyline points="7 18 7 20 3 20"/><polyline points="17 18 17 20 21 20"/><polyline points="9 11 11 13 15 9"/></svg>',
-    smart:    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
-    wrench:   '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
-    building: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
-  };
-  const svcGrid = $('svc-grid');
-  if(svcGrid){
-    svcGrid.innerHTML = CO.services.map(s=>`
-      <div class="svc-card" role="listitem">
-        <div class="svc-body">
-          <div class="svc-ico" aria-hidden="true">${ICONS[s.icon]||ICONS.light}</div>
-          <div class="svc-sub">${s.sub}</div>
-          <h3>${s.title}</h3>
-          <p>${s.desc}</p>
-          <span class="svc-more">Learn More <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </div>`).join('');
-  }
-
-  // Gallery
-  const GAL_LABELS = ['Kitchen Pot Lights','Living Room','Living Area','Bathroom Lighting','Kitchen Renovation','Modern Home','Electrician At Work','Kitchen Relight','Open Plan Living'];
-  const galGrid = $('gal-grid');
-  if(galGrid){
-    galGrid.innerHTML = CO.PHOTOS.gallery.map((src,i)=>{
-      const big = i===0 ? ' g-big' : '';
-      return `<div class="gallery-item${big}" role="listitem">
-        <img src="${src}" alt="${GAL_LABELS[i]||'Project photo'} installation by ${CO.name}" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none';" />
-        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">${GAL_LABELS[i]||'Project'}</span></div>
-      </div>`;
-    }).join('');
-  }
-
-  // Reviews
-  const REVIEWS = [
-    { stars:5, quote:"Had 18 pot lights put in throughout our main floor. The team was on time, incredibly clean, and the lights look absolutely perfect. Highly recommend.", name:"Sandra M.", loc:"Kitchener, ON", init:"S" },
-    { stars:5, quote:"Called at 8pm for a panel issue — someone was at our door by 9:15pm. Fixed in under an hour. Incredibly professional. Will use again.", name:"Derek T.", loc:"Cambridge, ON", init:"D" },
-    { stars:5, quote:"We got quotes from 3 companies. Tri-City was mid-range on price but the only one with a lifetime labour warranty. Zero regrets — install was flawless.", name:"Priya K.", loc:"Waterloo, ON", init:"P" },
-    { stars:5, quote:"Upgraded my 100A panel to 200A and added an EV charger. They handled the permit and ESA inspection entirely. Effortless on my end.", name:"Marcus B.", loc:"Guelph, ON", init:"M" },
-    { stars:5, quote:"Finally got potlights in our basement. 24 lights in one day and you'd never know anyone had been there. Immaculate work.", name:"Jennifer L.", loc:"Waterloo, ON", init:"J" },
-    { stars:5, quote:"Set up Lutron smart dimmers throughout the main floor. Now control everything from one app. Installation was quick and the electricians were friendly and knowledgeable.", name:"Ryan C.", loc:"Kitchener, ON", init:"R" },
-  ];
-  const revGrid = $('rev-grid');
-  if(revGrid){
-    revGrid.innerHTML = REVIEWS.map(r=>`
-      <div class="rev-card" role="listitem">
-        <div class="rev-s" aria-label="${r.stars} stars">${'★'.repeat(r.stars)}</div>
-        <p class="rev-txt">"${r.quote}"</p>
-        <div class="rev-by">
-          <div class="rev-ava" aria-hidden="true">${r.init}</div>
+    <!-- WHY US -->
+    <section class="section section--dark" aria-labelledby="why-h">
+      <div class="container">
+        <div class="why-grid">
           <div>
-            <div class="rev-nm">${r.name}</div>
-            <div class="rev-loc">${r.loc}</div>
+            <div class="eyebrow eyebrow--lt">Why Tri-City Electrical</div>
+            <h2 class="section-heading section-heading--lt sr" id="why-h">Precision Work. Safe Installations. Zero Shortcuts.</h2>
+            <p class="section-sub section-sub--lt sr">We've been wiring Tri-City homes since 2009. Every job is permitted, ESA-inspected, and backed by a licensed electrician — not a sub-trade.</p>
+            <div class="why-feats" role="list">
+              <div class="why-feat sr d1" role="listitem"><div class="why-feat__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>ESA Licensed — Every Technician</h4><p>All work is performed by licensed electricians and inspected by the Electrical Safety Authority. We pull permits so your home stays safe and insurable.</p></div></div>
+              <div class="why-feat sr d2" role="listitem"><div class="why-feat__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><div><h4>Written Quote, No Surprises</h4><p>You get a fixed written price before we start. No hourly billing, no scope creep, no surprise charges at the end of the job.</p></div></div>
+              <div class="why-feat sr d3" role="listitem"><div class="why-feat__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg></div><div><h4>Potlight Specialists Since 2009</h4><p>We've installed over 5,400 potlights in Tri-City homes. Layout, spacing, dimmer pairing — we've refined the process to deliver flawless results every time.</p></div></div>
+              <div class="why-feat sr d4" role="listitem"><div class="why-feat__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><h4>Clean Work. Respect for Your Home.</h4><p>We protect your floors and furniture, cut drywall cleanly, and leave every room exactly as we found it — minus the old wiring.</p></div></div>
+            </div>
+          </div>
+          <div class="why-img sr">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=700&q=80" alt="Tri-City electrician installing potlights" loading="lazy" onerror="this.style.display='none'" />
+            <div class="why-img__overlay" aria-hidden="true"></div>
+            <div class="why-img__foot">
+              <div class="cred-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <div><strong>ESA Licensed Electricians</strong><span>Ontario Certified · WSIB Covered</span></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>`).join('');
-  }
+      </div>
+    </section>
 
-  // Service areas
-  const areaChips = $('area-chips');
-  if(areaChips){
-    areaChips.innerHTML = CO.areas.map((a,i)=>`<span class="area-chip${i===0?' prime':''}" role="listitem">${a}</span>`).join('');
-  }
-
-  // FAQ
-  const FAQS = [
-    { q:"Do you pull the ESA permit?", a:"Yes. Every job we do is fully permitted through the Electrical Safety Authority. We handle the entire permit process and schedule the inspection. You receive a copy of the approved inspection for your records." },
-    { q:"Will you damage my ceiling when installing pot lights?", a:"In most cases, no. Our standard technique installs through the small cutout for each light only — no drywall repair needed. In rare cases involving insulation or unusual ceiling types, we discuss options with you before any work begins." },
-    { q:"How many pot lights do I need per room?", a:"A common guideline is one 4-inch pot light per 16-25 sq ft of floor space. We walk through each room during your free estimate and give you a specific recommendation based on ceiling height, room function, and your preferences." },
-    { q:"What's included in the lifetime labour warranty?", a:"If any work we performed fails due to our workmanship — including wiring, fixture mounting, dimmer installation, or any other labour — we repair it at no charge. This warranty has no expiry date and transfers to new homeowners." },
-    { q:"How soon can you start?", a:"We typically schedule within 2-5 business days for residential jobs. Emergency electrical issues are handled same-day or next-day whenever possible." },
-    { q:"Do you install customer-supplied fixtures?", a:"Yes, we install fixtures purchased by homeowners, though we don't warranty the fixture itself in that case. We recommend the LED housings and trims we supply because we know their quality and longevity." },
-  ];
-  const faqList = $('faq-list');
-  if(faqList){
-    faqList.innerHTML = FAQS.map((f,i)=>`
-      <div class="faq-item" role="listitem">
-        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-${i}" id="faq-btn-${i}" type="button">
-          <span>${f.q}</span>
-          <span class="faq-chev" aria-hidden="true">&#9660;</span>
-        </button>
-        <div class="faq-bw" id="faq-body-${i}" role="region" aria-labelledby="faq-btn-${i}">
-          <div class="faq-bi"><p class="faq-body">${f.a}</p></div>
+    <!-- PROCESS -->
+    <section class="section section--light" aria-labelledby="proc-h">
+      <div class="container">
+        <div class="section-header sr">
+          <div class="eyebrow">How It Works</div>
+          <h2 class="section-heading" id="proc-h">From Quote to Clean Installation</h2>
+          <p class="section-sub section-sub--center">A straightforward process that keeps you informed and your home protected from start to finish.</p>
         </div>
-      </div>`).join('');
+        <div class="process-grid" role="list">
+          <div class="proc-card sr d1" role="listitem"><div class="proc-card__num" aria-hidden="true">1</div><h4>Free On-Site Quote</h4><p>We visit your home, assess the job, and provide a written fixed-price quote. No hourly estimates — you know the cost upfront.</p></div>
+          <div class="proc-card sr d2" role="listitem"><div class="proc-card__num" aria-hidden="true">2</div><h4>Permit Pulled</h4><p>We handle all permits with the municipality and notify the ESA. Your work is done legally and your home insurance remains valid.</p></div>
+          <div class="proc-card sr d3" role="listitem"><div class="proc-card__num" aria-hidden="true">3</div><h4>Clean Installation</h4><p>Our licensed electricians complete the work precisely, protect your finishes, and leave every room clean and orderly.</p></div>
+          <div class="proc-card sr d4" role="listitem"><div class="proc-card__num" aria-hidden="true">4</div><h4>ESA Inspection</h4><p>The Electrical Safety Authority inspects and signs off the work. You receive your inspection certificate — peace of mind in one document.</p></div>
+        </div>
+      </div>
+    </section>
 
-    faqList.addEventListener('click', e=>{
-      const btn = e.target.closest('.faq-btn');
-      if(!btn) return;
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      // Close all
-      faqList.querySelectorAll('.faq-item.open').forEach(el=>{
-        el.classList.remove('open');
-        el.querySelector('.faq-btn').setAttribute('aria-expanded','false');
-      });
-      // Open clicked if it was closed
-      if(!isOpen){
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-    });
-  }
-})();
+    <!-- PROJECTS PREVIEW -->
+    <section class="section" aria-labelledby="proj-h">
+      <div class="container">
+        <div class="section-header sr">
+          <div class="eyebrow">Recent Work</div>
+          <h2 class="section-heading" id="proj-h">Installed Across Tri-City Homes</h2>
+          <p class="section-sub section-sub--center">Over 5,400 potlights installed. Panel upgrades, EV chargers, and full rewires across Kitchener, Cambridge, and Waterloo.</p>
+        </div>
+        <div class="gallery-grid sr" role="list" aria-label="Recent project photos">
+          <div class="gallery-item g-wide g-tall" role="listitem"><img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=75" alt="Modern kitchen with recessed LED potlights" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">Kitchen Potlights</span></div></div>
+          <div class="gallery-item" role="listitem"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=75" alt="Modern living room with recessed lighting" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">Living Room Lighting</span></div></div>
+          <div class="gallery-item" role="listitem"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=75" alt="Electrical panel upgrade" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">Panel Upgrade</span></div></div>
+          <div class="gallery-item" role="listitem"><img src="https://images.unsplash.com/photo-1571170379706-e6e7d0b7e1cc?auto=format&fit=crop&w=800&q=75" alt="EV charger installed in garage" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">EV Charger Install</span></div></div>
+          <div class="gallery-item" role="listitem"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=75" alt="Dimmer switch and outlet installation" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">Smart Dimmer Install</span></div></div>
+          <div class="gallery-item" role="listitem"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=75" alt="Exterior soffit and landscape lighting" loading="lazy" onerror="this.closest('.gallery-item').style.background='var(--ink-600)';this.style.display='none'" /><div class="gallery-item__overlay" aria-hidden="true"><span class="gallery-item__tag">Exterior Lighting</span></div></div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;" class="sr"><a href="projects/" class="btn btn--outline btn--lg">View All Projects</a></div>
+      </div>
+    </section>
 
-/* ── Header shadow on scroll ─────────────────────── */
-(function headerScroll(){
-  const hdr = $('hdr');
-  if(!hdr) return;
-  const check = ()=> hdr.classList.toggle('shadow', window.scrollY > 10);
-  window.addEventListener('scroll', check, { passive:true });
-  check();
-})();
+    <!-- REVIEWS -->
+    <section class="section section--light" aria-labelledby="rev-h">
+      <div class="container">
+        <div class="rev-agg sr"><div class="rev-agg__num">4.9</div><div class="rev-agg__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-agg__count">312 verified Google reviews</div></div>
+        <div class="section-header sr"><div class="eyebrow">Reviews</div><h2 class="section-heading" id="rev-h">What Homeowners Say</h2></div>
+        <div class="rev-grid" role="list">
+          <div class="rev-card sr d1" role="listitem"><div class="rev-card__stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-card__text">"Had potlights installed in our kitchen, dining room, and living room in one day. The team was fast, immaculate — you'd never know they were in the ceiling. The layout looks exactly like the design they showed us beforehand."</p><div class="rev-card__author"><div class="rev-card__avatar" aria-hidden="true">K</div><div><div class="rev-card__name">Karen D.</div><div class="rev-card__loc">Kitchener, ON</div></div></div></div>
+          <div class="rev-card sr d2" role="listitem"><div class="rev-card__stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-card__text">"Panel was undersized for our workshop addition. Tri-City upgraded to 200A, installed the sub-panel, pulled the permits, and had the ESA inspection done in the same week. Professional from start to finish."</p><div class="rev-card__author"><div class="rev-card__avatar" aria-hidden="true">B</div><div><div class="rev-card__name">Brian H.</div><div class="rev-card__loc">Cambridge, ON</div></div></div></div>
+          <div class="rev-card sr d3" role="listitem"><div class="rev-card__stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-card__text">"Level 2 charger for our Tesla. They handled the permit, the dedicated circuit, the mounting, and the activation. Total cost matched the quote exactly. Already booked them for potlights in the basement."</p><div class="rev-card__author"><div class="rev-card__avatar" aria-hidden="true">M</div><div><div class="rev-card__name">Michael Y.</div><div class="rev-card__loc">Waterloo, ON</div></div></div></div>
+        </div>
+      </div>
+    </section>
 
-/* ── Mobile bar: show on first scroll ───────────────
-   Replaces 1600ms timeout with scroll-triggered reveal.
-   Falls back to 600ms if user doesn't scroll.
-─────────────────────────────────────────────────── */
-(function mobBar(){
-  const mob = $('mob-bar');
-  if(!mob) return;
-  if(window.innerWidth > 820){ return; }
+    <!-- SERVICE AREA -->
+    <section class="section" aria-labelledby="area-h">
+      <div class="container">
+        <div class="section-header sr"><div class="eyebrow">Service Area</div><h2 class="section-heading" id="area-h">Serving Tri-City &amp; Waterloo Region</h2><p class="section-sub section-sub--center">Based in Kitchener — ESA-licensed electricians on-site across the region.</p></div>
+        <div class="area-chips sr" role="list">
+          <span class="area-chip area-chip--prime" role="listitem">Kitchener</span>
+          <span class="area-chip" role="listitem">Cambridge</span>
+          <span class="area-chip" role="listitem">Waterloo</span>
+          <span class="area-chip" role="listitem">Guelph</span>
+          <span class="area-chip" role="listitem">Brantford</span>
+          <span class="area-chip" role="listitem">Paris</span>
+          <span class="area-chip" role="listitem">Elmira</span>
+          <span class="area-chip" role="listitem">New Hamburg</span>
+          <span class="area-chip" role="listitem">Fergus</span>
+        </div>
+      </div>
+    </section>
 
-  let shown = false;
-  const show = ()=>{
-    if(shown) return;
-    shown = true;
-    mob.classList.add('visible');
-    window.removeEventListener('scroll', show, { passive:true });
-  };
+    <!-- CTA -->
+    <section class="final-cta" aria-labelledby="cta-h">
+      <div class="container"><div class="final-cta__inner">
+        <h2 class="sr" id="cta-h">Ready to Upgrade Your <span>Lighting or Electrical?</span></h2>
+        <p class="sr">Free on-site quote. Written fixed price. ESA-licensed and permitted — every job.</p>
+        <a href="tel:5195550199" class="final-cta__phone sr">(519) 555-0199</a>
+        <div class="final-cta__btns sr">
+          <a href="contact/" class="btn btn--accent btn--lg">Get a Free Quote</a>
+          <a href="tel:5195550199" class="btn btn--ghost btn--lg">Call Now</a>
+        </div>
+        <div class="cert-pill sr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ESA Licensed · WSIB Covered · All Work Permitted &amp; Inspected</div>
+      </div></div>
+    </section>
 
-  window.addEventListener('scroll', show, { passive:true });
-  // Fallback: show after 600ms even without scroll
-  setTimeout(show, 600);
-})();
+  </main>
 
-/* ── Scroll Reveal ───────────────────────────────── */
-(function scrollReveal(){
-  if(prefersReducedMotion()){
-    document.querySelectorAll('.sr').forEach(el=>el.classList.add('up'));
-    return;
-  }
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('up');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold:0.08 });
-  document.querySelectorAll('.sr').forEach(el=>io.observe(el));
-})();
-
-/* ── Stagger clear on transitionend ─────────────── */
-document.querySelectorAll('.sr').forEach(el=>{
-  el.addEventListener('transitionend', ()=>{ el.style.transitionDelay=''; }, { once:true });
-});
-
-/* ── Before/After Slider ─────────────────────────── */
-(function baSlider(){
-  const con = $('ba-container');
-  const before = $('ba-before');
-  const divider = $('ba-divider');
-  if(!con || !before || !divider) return;
-
-  let pct = 50;
-  const set = (x)=>{
-    const rect = con.getBoundingClientRect();
-    pct = Math.min(95, Math.max(5, ((x - rect.left) / rect.width) * 100));
-    before.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
-    divider.style.left = pct+'%';
-  };
-
-  let dragging = false;
-  con.addEventListener('mousedown', e=>{ dragging=true; set(e.clientX); e.preventDefault(); });
-  window.addEventListener('mousemove', e=>{ if(dragging) set(e.clientX); });
-  window.addEventListener('mouseup', ()=>{ dragging=false; });
-
-  con.addEventListener('touchstart', e=>{ set(e.touches[0].clientX); }, { passive:true });
-  con.addEventListener('touchmove', e=>{ set(e.touches[0].clientX); e.preventDefault(); }, { passive:false });
-
-  // Keyboard accessible
-  con.setAttribute('tabindex','0');
-  con.addEventListener('keydown', e=>{
-    if(e.key==='ArrowLeft')  pct = Math.max(5,  pct-5), set(con.getBoundingClientRect().left + (pct/100)*con.offsetWidth);
-    if(e.key==='ArrowRight') pct = Math.min(95, pct+5), set(con.getBoundingClientRect().left + (pct/100)*con.offsetWidth);
-  });
-})();
-
-/* ── Form Submission ─────────────────────────────── */
-(function quoteForm(){
-  const form = $('quote-form');
-  const btn  = $('quote-btn');
-  if(!form || !btn) return;
-
-  // Snapshot button childNodes on load (preserves SVG icon)
-  const btnSnapshot = Array.from(btn.childNodes).map(n => n.cloneNode(true));
-  const restoreBtn  = () => btn.replaceChildren(...btnSnapshot.map(n=>n.cloneNode(true)));
-
-  // Focus styles for inputs
-  form.querySelectorAll('input,select,textarea').forEach(el=>{
-    el.addEventListener('focus', ()=>{ el.style.borderColor='var(--p)'; el.style.boxShadow='0 0 0 3px var(--p-gl)'; });
-    el.addEventListener('blur',  ()=>{ el.style.borderColor='var(--ink-100)'; el.style.boxShadow='none'; });
-  });
-
-  form.addEventListener('submit', async e=>{
-    e.preventDefault();
-
-    // Basic validation
-    const name  = $('f-name'),  phone = $('f-phone');
-    let valid = true;
-    [name, phone].forEach(el=>{
-      if(!el.value.trim()){ el.style.borderColor='var(--red)'; valid=false; }
-      else { el.style.borderColor='var(--green)'; }
-    });
-    if(!valid){ name.focus(); return; }
-
-    // Loading state — no innerHTML, preserve icon node structure
-    btn.disabled = true;
-    btn.style.opacity='0.7';
-    btn.style.cursor='wait';
-    const txtNode = Array.from(btn.childNodes).find(n=>n.nodeType===Node.TEXT_NODE);
-    if(txtNode) txtNode.textContent = ' Sending...';
-
-    // Simulate send (replace with Formspree fetch in production)
-    await new Promise(r=>setTimeout(r,1200));
-
-    // Success state
-    btn.disabled = false;
-    btn.style.opacity='1';
-    btn.style.cursor='default';
-    btn.style.background='var(--green)';
-    btn.style.boxShadow='0 6px 20px rgba(16,185,129,.3)';
-    btn.replaceChildren(
-      (()=>{ const s=document.createElement('span'); s.textContent='Sent! '; return s; })(),
-      (()=>{ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('width','17'); svg.setAttribute('height','17'); svg.setAttribute('viewBox','0 0 24 24'); svg.setAttribute('fill','none'); svg.setAttribute('stroke','currentColor'); svg.setAttribute('stroke-width','2.5'); svg.setAttribute('stroke-linecap','round'); svg.setAttribute('stroke-linejoin','round'); svg.setAttribute('aria-hidden','true'); const p=document.createElementNS('http://www.w3.org/2000/svg','polyline'); p.setAttribute('points','20 6 9 17 4 12'); svg.appendChild(p); return svg; })(),
-      (()=>{ const s=document.createElement('span'); s.textContent=' We\'ll call you shortly'; return s; })()
-    );
-    btn.setAttribute('aria-live','polite');
-
-    // Reset form but not button — restore after 5s
-    form.reset();
-    form.querySelectorAll('input,select,textarea').forEach(el=>{ el.style.borderColor='var(--ink-100)'; el.style.boxShadow='none'; });
-    setTimeout(()=>{
-      restoreBtn();
-      btn.style.background='';
-      btn.style.boxShadow='';
-      btn.style.cursor='';
-    }, 5000);
-  });
-})();
-
-/* ── Animated counters ───────────────────────────── */
-(function counters(){
-  if(prefersReducedMotion()) return;
-  const targets = [
-    { id:'cn-jobs', target:CO.jobs,        suffix:'<span class="u">+</span>' },
-    { id:'cn-res',  target:CO.residential, suffix:'<span class="u">+</span>' },
-  ];
-  const io2 = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(!entry.isIntersecting) return;
-      const el = entry.target;
-      const t  = targets.find(x=>x.id===el.id);
-      if(!t) return;
-      io2.unobserve(el);
-      let start=0, dur=1800, startTime=null;
-      const step = ts=>{
-        if(!startTime) startTime=ts;
-        const prog = Math.min((ts-startTime)/dur,1);
-        const ease = 1-Math.pow(1-prog,4);
-        el.innerHTML = Math.round(ease*t.target).toLocaleString() + t.suffix;
-        if(prog<1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    });
-  }, { threshold:0.3 });
-  targets.forEach(t=>{ const el=$(t.id); if(el) io2.observe(el); });
-})();
-
-})();
-</script>
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="./" class="logo" aria-label="Tri-City Potlight & Electrical — home">
+            <div class="logo__mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div class="logo__text"><div class="logo__name">Tri-City <span>Electrical</span></div></div>
+          </a>
+          <p>ESA-licensed electricians serving Kitchener, Cambridge, Waterloo, and surrounding communities since 2009. Potlight specialists and full-service electrical.</p>
+          <div class="footer__socials" aria-label="Social media">
+            <a href="#" class="footer__soc" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__soc" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__soc" aria-label="Google Maps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col"><h5>Services</h5><ul><li><a href="services/#potlights">Potlight Installation</a></li><li><a href="services/#panels">Panel Upgrades</a></li><li><a href="services/#ev-chargers">EV Chargers</a></li><li><a href="services/#wiring">Wiring &amp; Rewiring</a></li><li><a href="services/#outlets">Outlets &amp; Switches</a></li><li><a href="services/#exterior">Exterior Lighting</a></li></ul></div>
+        <div class="footer__col"><h5>Company</h5><ul><li><a href="about/">About Us</a></li><li><a href="projects/">Our Work</a></li><li><a href="about/#reviews">Reviews</a></li><li><a href="contact/">Contact</a></li></ul></div>
+        <div class="footer__col"><h5>Contact</h5><ul><li><a href="tel:5195550199">(519) 555-0199</a></li><li><a href="mailto:info@tricityelectrical.ca">info@tricityelectrical.ca</a></li><li><a href="contact/">Free Quote</a></li></ul>
+          <div style="margin-top:1rem;padding:.875rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-10);">
+            <div style="font-size:.75rem;font-weight:700;color:var(--ink-400);letter-spacing:.05em;margin-bottom:.25rem;">HOURS</div>
+            <div style="font-size:.875rem;font-weight:700;color:var(--ink-200);">Mon–Fri 8AM–6PM</div>
+            <div style="font-size:.75rem;color:var(--ink-500);margin-top:.25rem;">Sat by appointment · ESA #7012345</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">&copy; 2025 Tri-City Potlight &amp; Electrical. All rights reserved. Kitchener, Ontario.</div>
+        <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+  <div class="mob-bar" id="mobBar" role="region" aria-label="Quick contact">
+    <a href="tel:5195550199" class="btn btn--primary btn--sm" style="flex:1;text-align:center;">Call Now</a>
+    <a href="contact/" class="btn btn--accent btn--sm" style="flex:1;text-align:center;">Free Quote</a>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
