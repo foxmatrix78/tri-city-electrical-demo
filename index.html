@@ -4,16 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#1a1a2e" />
-  <title>Tri-City Electrical | Licensed Electricians — Kitchener · Waterloo · Cambridge</title>
-  <meta name="description" content="Tri-City Electrical — ESA certified electricians serving Kitchener, Waterloo & Cambridge. Panel upgrades, EV charger installation, home rewiring, pot lights & more. Free estimates." />
+  <title>Tri-City Electrical | ESA-Certified Electricians — Kitchener, Waterloo, Cambridge</title>
+  <meta name="description" content="Tri-City Electrical — ESA-certified electricians serving Kitchener, Waterloo, and Cambridge. Panel upgrades, EV charger installation, pot lights, home rewiring, and commercial electrical. Free estimates." />
+  <link rel="canonical" href="https://grandriverdigital.github.io/tri-city-electrical-demo/" />
 
-  <!-- Preconnect for fonts -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "name": "Tri-City Electrical",
+    "telephone": "(519) 555-0187",
+    "email": "info@tricityelectrical.ca",
+    "address": {"@type": "PostalAddress", "addressLocality": "Kitchener", "addressRegion": "ON", "addressCountry": "CA"},
+    "foundingDate": "2009",
+    "openingHours": ["Mo-Fr 08:00-18:00", "Sa 09:00-16:00"],
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312", "bestRating": "5"}
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Image resilience: define before any <img onerror="imgFallback(this)"> -->
   <script>
-    var IMG_FALLBACK = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3ClinearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 stop-color=%22%231a1a2e%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%2316213e%22/%3E%3C/linearGradient%3E%3Crect width=%22800%22 height=%22600%22 fill=%22url(%23g)%22/%3E%3Cpolygon points=%22420,160 400,280 430,280 390,420 440,290 408,290 445,160%22 fill=%22rgba(243,156,18,0.25)%22/%3E%3C/svg%3E';
+    var IMG_FALLBACK = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3ClinearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 stop-color=%22%231a1a2e%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%2216213e%22/%3E%3C/linearGradient%3E%3Crect width=%22800%22 height=%22600%22 fill=%22url(%23g)%22/%3E%3Ccircle cx=%22400%22 cy=%22280%22 r=%2290%22 fill=%22rgba(243,156,18,0.18)%22/%3E%3Cpath d=%22M380 230 L430 280 L400 280 L420 350 L360 290 L395 290 Z%22 fill=%22rgba(255,255,255,0.1)%22/%3E%3C/svg%3E';
     function imgFallback(img) {
       img.onerror = null;
       img.src = IMG_FALLBACK;
@@ -27,14 +40,12 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     TOP BAR
-═══════════════════════════════════ -->
+<!-- TOP BAR -->
 <div id="topbar">
   <div class="topbar-left">
     <div class="topbar-item">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Kitchener · Waterloo · Cambridge &amp; Surrounding Areas
+      Kitchener, Waterloo &amp; Cambridge
     </div>
     <div class="topbar-item">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -47,14 +58,12 @@
   </a>
 </div>
 
-<!-- ═══════════════════════════════════
-     STICKY HEADER
-═══════════════════════════════════ -->
+<!-- STICKY HEADER -->
 <header id="hdr">
   <div class="wrap hdr-inner">
     <a href="#" class="logo" aria-label="Tri-City Electrical — home">
-      <div class="logo-bolt" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <div class="logo-leaf" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       </div>
       <div class="logo-text">
         Tri-City
@@ -64,7 +73,7 @@
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#gallery">Projects</a>
       <a href="#why-us">Why Us</a>
       <a href="#testimonials">Reviews</a>
       <a href="#about">About</a>
@@ -88,14 +97,14 @@
 <div id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <nav>
     <a href="#services" class="mobile-link">Services</a>
-    <a href="#gallery" class="mobile-link">Gallery</a>
+    <a href="#gallery" class="mobile-link">Projects</a>
     <a href="#why-us" class="mobile-link">Why Us</a>
     <a href="#testimonials" class="mobile-link">Reviews</a>
     <a href="#about" class="mobile-link">About</a>
     <a href="#quote" class="mobile-link">Contact</a>
   </nav>
   <div class="mobile-nav-cta">
-    <a href="tel:5195550187" class="btn btn-outline-lt btn-lg" style="justify-content:center">
+    <a href="tel:5195550187" class="btn btn-outline-dk btn-lg" style="justify-content:center">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       (519) 555-0187
     </a>
@@ -103,14 +112,12 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-     HERO
-═══════════════════════════════════ -->
+<!-- HERO -->
 <section id="hero" aria-labelledby="hero-h1">
   <div class="hero-bg">
     <img
       src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=1800&h=900&dpr=1"
-      alt="Licensed electrician working on residential electrical panel"
+      alt="ESA-certified electrician working on an electrical panel"
       fetchpriority="high"
       loading="eager" onerror="imgFallback(this)">
   </div>
@@ -119,21 +126,21 @@
       <div class="hero-inner">
         <div class="hero-kicker">
           <span class="dot" aria-hidden="true"></span>
-          ESA Certified · Kitchener-Waterloo-Cambridge
+          Kitchener · Waterloo · Cambridge
         </div>
         <h1 id="hero-h1">
-          <em>Expert</em> Electrical.<br>Done Right, Done Safe.
+          <em>Certified.</em> Reliable.<br>Done Right.
         </h1>
         <p class="hero-sub">
-          From panel upgrades and EV charger installations to full home rewiring — Tri-City Electrical delivers code-compliant, ESA-certified work backed by 15+ years of trusted service across the Tri-City region.
+          ESA-licensed electricians serving the Tri-City region since 2009. Panel upgrades, EV charger installation, pot lights, and 24/7 emergency service. Free written estimates on every job.
         </p>
         <div class="hero-ctas">
           <a href="#quote" class="btn btn-primary btn-lg">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             Get a Free Estimate
           </a>
-          <a href="#services" class="btn btn-outline btn-lg">
-            Our Services
+          <a href="#gallery" class="btn btn-outline btn-lg">
+            View Our Work
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -146,21 +153,21 @@
           </div>
           <div class="hero-badge" role="listitem">
             <span class="badge-icon" aria-hidden="true">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </span>
-            EV Charger Specialists
+            4.9★ Google Rated
           </div>
           <div class="hero-badge" role="listitem">
             <span class="badge-icon" aria-hidden="true">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
             </span>
             Free Written Quotes
           </div>
           <div class="hero-badge" role="listitem">
             <span class="badge-icon" aria-hidden="true">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </span>
-            24/7 Emergency Service
+            EV Charger Specialists
           </div>
         </div>
       </div>
@@ -168,14 +175,12 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     STATS STRIP
-═══════════════════════════════════ -->
+<!-- STATS STRIP -->
 <div id="stats" aria-label="Business statistics">
   <div class="wrap">
     <div class="stats-row">
       <div class="stat-cell">
-        <div class="stat-n" id="sn-jobs">0<span class="accent">+</span></div>
+        <div class="stat-n" id="sn-proj">0<span class="accent">+</span></div>
         <div class="stat-l">Jobs Completed</div>
       </div>
       <div class="stat-cell">
@@ -183,85 +188,83 @@
         <div class="stat-l">Years in Business</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n">ESA<span class="accent">#</span></div>
-        <div class="stat-l">7002147 — Certified</div>
-      </div>
-      <div class="stat-cell">
         <div class="stat-n">4.9<span class="accent">★</span></div>
         <div class="stat-l">Google Rating</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">100<span class="accent">%</span></div>
+        <div class="stat-l">ESA Compliant Work</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-     SERVICES
-═══════════════════════════════════ -->
+<!-- SERVICES -->
 <section id="services" aria-labelledby="svc-title">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow sr">What We Do</div>
-      <h2 class="section-title sr d1" id="svc-title">Electrical Services for Every<br>Home &amp; Business</h2>
-      <p class="section-sub sr d2">From quick fixes to full electrical overhauls — our licensed team handles it all with ESA-certified workmanship and a commitment to your safety.</p>
+      <h2 class="section-title sr d1" id="svc-title">Electrical Services for<br>Every Home &amp; Business</h2>
+      <p class="section-sub sr d2">From urgent repairs to full-scale upgrades — our ESA-licensed electricians handle it all with written quotes and workmanship you can count on.</p>
     </div>
     <div class="services-grid">
 
       <div class="service-card sr d1">
-        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Electrical panel upgrade — residential breaker box" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Electrical panel upgrade — modern 200-amp service" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
           <div class="service-tag">Most Requested</div>
           <h3>Panel Upgrades</h3>
-          <p class="service-desc">Upgrade your home's electrical panel to safely support modern appliances, EV chargers, and smart home systems. 100A to 200A upgrades with full ESA inspection.</p>
+          <p class="service-desc">Upgrade your 100-amp panel to 200-amp or higher. Essential for EV chargers, home additions, and older homes with outdated wiring. ESA permit pulled on every job.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
 
       <div class="service-card sr d2">
-        <img src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="EV charger installation — Level 2 home charging station" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="EV charger installation for electric vehicle" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
-          <div class="service-tag">Hot Market Topic</div>
-          <h3>EV Charger Install</h3>
-          <p class="service-desc">Level 2 home charging installation for all major EV brands. We handle permitting, panel capacity assessment, and ESA certification — start charging overnight.</p>
+          <div class="service-tag">Growing Fast</div>
+          <h3>EV Charger Installation</h3>
+          <p class="service-desc">Level 2 home EV charger installation (240V). We handle the panel assessment, permit, wiring, and charger mounting. Certified for all major brands including Tesla, ChargePoint, and Wallbox.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
 
       <div class="service-card sr d3">
-        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Home rewiring — licensed electrician working on wiring" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Electrician performing home rewiring work" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
-          <div class="service-tag">Safety Critical</div>
+          <div class="service-tag">Safety First</div>
           <h3>Home Rewiring</h3>
-          <p class="service-desc">Old aluminum wiring or outdated circuits putting your family at risk? We rewire homes to current Ontario Electrical Safety Code standards — fully permitted and inspected.</p>
+          <p class="service-desc">Aluminum wiring remediation, knob-and-tube replacement, and full home rewiring for older properties. Protect your family and qualify for home insurance.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
 
       <div class="service-card sr d2">
-        <img src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Pot light installation — recessed LED lighting in ceiling" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Pot lights installed in modern kitchen ceiling" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
           <div class="service-tag">Transform Any Room</div>
-          <h3>Pot Lights</h3>
-          <p class="service-desc">Clean, modern LED pot light installation in any room. We cut holes, run wiring, and leave zero mess. Dimmer-compatible options available for every budget.</p>
+          <h3>Pot Lights &amp; Lighting</h3>
+          <p class="service-desc">LED pot light installation, under-cabinet lighting, dimmer switches, and smart lighting systems. A one-day install that transforms the look and feel of any room.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
 
       <div class="service-card sr d3">
-        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Surge protection device for whole home electrical safety" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Whole home surge protection device" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
           <div class="service-tag">Protect Your Home</div>
           <h3>Surge Protection</h3>
-          <p class="service-desc">Whole-home surge protection keeps expensive electronics and appliances safe from power spikes. One-time install, lifetime protection. Ask about our warranty programs.</p>
+          <p class="service-desc">Whole-home surge protectors installed directly at your panel. Guard your electronics, appliances, and HVAC equipment from damaging power surges.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
 
       <div class="service-card sr d4">
-        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Commercial electrical work — office and retail electrical services" loading="lazy" onerror="imgFallback(this)">
+        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800&h=534&dpr=1" alt="Commercial electrical work in office building" loading="lazy" onerror="imgFallback(this)">
         <div class="service-body">
-          <div class="service-tag">Commercial</div>
+          <div class="service-tag">Business Ready</div>
           <h3>Commercial Electrical</h3>
-          <p class="service-desc">Tenant improvements, lighting retrofits, panel work, and new construction wiring for retail, office, and light industrial clients. Minimal disruption to your operations.</p>
+          <p class="service-desc">Tenant fit-ups, warehouse lighting, 3-phase power, CCTV and access control wiring, and ongoing maintenance contracts for local businesses.</p>
           <span class="service-arrow">Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </div>
@@ -270,55 +273,52 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     GALLERY
-═══════════════════════════════════ -->
-<section id="gallery" aria-labelledby="gallery-title">
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="proj-title">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow sr">Our Work</div>
-      <h2 class="section-title sr d1" id="gallery-title">Recent Projects</h2>
-      <p class="section-sub cx sr d2">Every photo is a real job — real homeowners who trusted us with their home's electrical safety.</p>
+      <div class="eyebrow sr">Our Portfolio</div>
+      <h2 class="section-title sr d1" id="proj-title">Recent Projects</h2>
+      <p class="section-sub cx sr d2">Every photo is a real job in the Tri-City area — real homeowners, real upgrades.</p>
     </div>
 
-    <div class="gallery-grid" id="gallery-grid" role="list">
-      <div class="gallery-item featured sr" data-src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-caption="Full Panel Upgrade &amp; Rewire — Kitchener" role="listitem">
-        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" alt="Licensed electrician performing full home electrical rewire" loading="lazy" onerror="imgFallback(this)">
-        <div class="gallery-overlay"><span class="gallery-label">Panel &amp; Rewire</span></div>
-        <div class="gallery-zoom" aria-hidden="true">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-      </div>
-
-      <div class="gallery-item sr d1" data-src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="200A Panel Upgrade — Waterloo" role="listitem">
-        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="200 amp electrical panel upgrade" loading="lazy" onerror="imgFallback(this)">
+    <div class="gallery-grid" id="gallery" role="list">
+      <div class="gallery-item featured sr" data-src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-caption="200-Amp Panel Upgrade — Kitchener Residential" role="listitem">
+        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" alt="Modern 200-amp electrical panel upgrade" loading="lazy" onerror="imgFallback(this)">
         <div class="gallery-overlay"><span class="gallery-label">Panel Upgrade</span></div>
         <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
-      <div class="gallery-item sr d2" data-src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Level 2 EV Charger Install — Cambridge" role="listitem">
-        <img src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="EV charger Level 2 installation in residential garage" loading="lazy" onerror="imgFallback(this)">
+      <div class="gallery-item sr d1" data-src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Level 2 EV Charger Install — Waterloo" role="listitem">
+        <img src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="EV charger installation in residential garage" loading="lazy" onerror="imgFallback(this)">
         <div class="gallery-overlay"><span class="gallery-label">EV Charger Install</span></div>
         <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
-      <div class="gallery-item wide sr d1" data-src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-caption="LED Pot Light Installation — Guelph" role="listitem">
-        <img src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" alt="LED recessed pot lights installed in living room ceiling" loading="lazy" onerror="imgFallback(this)">
-        <div class="gallery-overlay"><span class="gallery-label">Pot Light Install</span></div>
+      <div class="gallery-item sr d2" data-src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="LED Pot Lights — Kitchen Renovation, Cambridge" role="listitem">
+        <img src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="LED pot lights in modern kitchen renovation" loading="lazy" onerror="imgFallback(this)">
+        <div class="gallery-overlay"><span class="gallery-label">Pot Lights</span></div>
         <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
-      <div class="gallery-item sr d2" data-src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Surge Protection System — Kitchener" role="listitem">
-        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="Whole-home surge protection device installation" loading="lazy" onerror="imgFallback(this)">
+      <div class="gallery-item wide sr d1" data-src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-caption="Full Home Rewiring — Kitchener Heritage Home" role="listitem">
+        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" alt="Electrician performing home rewiring work" loading="lazy" onerror="imgFallback(this)">
+        <div class="gallery-overlay"><span class="gallery-label">Home Rewiring</span></div>
+        <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      </div>
+
+      <div class="gallery-item sr d2" data-src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Whole-Home Surge Protection — Waterloo" role="listitem">
+        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="Panel with whole-home surge protector installed" loading="lazy" onerror="imgFallback(this)">
         <div class="gallery-overlay"><span class="gallery-label">Surge Protection</span></div>
         <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
 
-      <div class="gallery-item sr d3" data-src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Commercial Rewire — Waterloo Office" role="listitem">
-        <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="Commercial electrical work in office building" loading="lazy" onerror="imgFallback(this)">
-        <div class="gallery-overlay"><span class="gallery-label">Commercial Project</span></div>
+      <div class="gallery-item sr d3" data-src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1" data-caption="Tesla Wall Connector Install — Cambridge" role="listitem">
+        <img src="https://images.pexels.com/photos/9800007/pexels-photo-9800007.jpeg?auto=compress&cs=tinysrgb&w=700&h=467&dpr=1" alt="Tesla wall connector EV charger installed in garage" loading="lazy" onerror="imgFallback(this)">
+        <div class="gallery-overlay"><span class="gallery-label">Tesla Charger</span></div>
         <div class="gallery-zoom" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       </div>
+
     </div>
 
     <div class="gallery-cta sr">
@@ -330,16 +330,14 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     WHY CHOOSE US
-═══════════════════════════════════ -->
+<!-- WHY CHOOSE US -->
 <section id="why-us" aria-labelledby="why-title">
   <div class="wrap">
     <div class="why-grid">
       <div class="why-img sr">
         <img
           src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&dpr=1"
-          alt="Tri-City Electrical licensed electrician on the job"
+          alt="ESA-certified Tri-City electrician at work"
           loading="lazy" onerror="imgFallback(this)">
         <div class="why-img-badge">
           <div class="big">15+</div>
@@ -349,8 +347,8 @@
       <div>
         <div class="eyebrow sr">Why Choose Us</div>
         <h2 class="section-title sr d1" id="why-title">The Tri-City Electrical Difference</h2>
-        <p class="section-sub sr d2" style="margin-bottom: 0">
-          We're not the cheapest quote in the Tri-City area — but we are the most thorough, the most reliable, and the only crew that signs off with an ESA certificate of inspection on every job.
+        <p class="section-sub sr d2" style="margin-bottom:0">
+          We're ESA-certified, permit-pulling electricians who treat your home like our own. No shortcuts, no uncertified helpers, no surprise invoices. Just quality electrical work done right.
         </p>
         <div class="why-benefits">
           <div class="why-benefit sr d1">
@@ -358,26 +356,26 @@
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <h4>ESA Certified on Every Job</h4>
-              <p>Every permit-required project is inspected and certified by the Electrical Safety Authority. Your home, your insurance, and your family are protected.</p>
+              <h4>ESA Licensed &amp; Fully Insured</h4>
+              <p>Every job is done by a certified electrician and closed with an ESA certificate of inspection. No unlicensed helpers. Full liability coverage on every project.</p>
             </div>
           </div>
           <div class="why-benefit sr d2">
+            <div class="why-benefit-icon" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <div>
+              <h4>Free Written Estimates</h4>
+              <p>We assess the job, give you a written price, and that's what you pay. No hourly surprises, no change orders without your approval. Honest pricing every time.</p>
+            </div>
+          </div>
+          <div class="why-benefit sr d3">
             <div class="why-benefit-icon" aria-hidden="true">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
               <h4>EV Charger Specialists</h4>
-              <p>As the region's go-to EV charger installers, we assess your panel capacity, recommend the right charger, and handle permits from start to finish.</p>
-            </div>
-          </div>
-          <div class="why-benefit sr d3">
-            <div class="why-benefit-icon" aria-hidden="true">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <div>
-              <h4>Free, Detailed Written Quotes</h4>
-              <p>No mystery pricing. We provide itemized written estimates and stick to them. What we quote is what you pay — zero surprise invoices.</p>
+              <p>As the Tri-City's leading EV charger installer, we've completed hundreds of Level 2 charger installations. We know every panel, every incentive program, and every charger brand.</p>
             </div>
           </div>
           <div class="why-benefit sr d4">
@@ -385,8 +383,8 @@
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
-              <h4>24/7 Emergency Response</h4>
-              <p>Electrical emergencies don't wait for business hours. Our on-call electricians respond fast — nights, weekends, and holidays across the Tri-City area.</p>
+              <h4>On Time, On Budget</h4>
+              <p>We show up when we say, finish when we estimate, and clean up before we leave. Over 300 five-star Google reviews from homeowners who can confirm it.</p>
             </div>
           </div>
         </div>
@@ -395,18 +393,16 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     TESTIMONIALS
-═══════════════════════════════════ -->
+<!-- TESTIMONIALS -->
 <section id="testimonials" aria-labelledby="test-title">
   <div class="wrap">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom: 2.5rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
       <div class="testimonials-intro">
         <div class="eyebrow lt sr">Client Reviews</div>
-        <h2 class="section-title lt sr d1" id="test-title">What Our Clients Say</h2>
+        <h2 class="section-title lt sr d1" id="test-title">What Tri-City Homeowners Say</h2>
         <div class="rating-display sr d2">
           <div class="stars" aria-label="5 star rating">★★★★★</div>
-          <div class="rating-text">4.9 · 180+ verified reviews · Google</div>
+          <div class="rating-text">4.9 · 312+ verified reviews · Google</div>
         </div>
       </div>
       <div class="carousel-controls sr d1">
@@ -426,12 +422,12 @@
           <div class="testimonial-card">
             <div class="t-quote">"</div>
             <div class="t-stars">★★★★★</div>
-            <p class="t-text">Had Tri-City out to install a Level 2 EV charger for our Tesla. They assessed the panel, pulled the permit, installed everything in one day, and had an ESA certificate in hand the following week. Couldn't be happier with the entire process.</p>
+            <p class="t-text">Tri-City installed our EV charger and upgraded our panel in the same visit. They pulled the permit, scheduled the ESA inspection, and handled everything. Start to finish in one day. Price was exactly what they quoted. Absolutely use them.</p>
             <div class="t-author">
-              <div class="t-avatar" aria-hidden="true">D</div>
+              <div class="t-avatar" aria-hidden="true">M</div>
               <div>
-                <div class="t-name">David &amp; Kim R.</div>
-                <div class="t-loc">Waterloo · Google · 2 weeks ago</div>
+                <div class="t-name">Mark &amp; Jennifer A.</div>
+                <div class="t-loc">Waterloo · Google · 3 weeks ago</div>
               </div>
             </div>
           </div>
@@ -439,11 +435,11 @@
           <div class="testimonial-card">
             <div class="t-quote">"</div>
             <div class="t-stars">★★★★★</div>
-            <p class="t-text">Our older home had aluminum wiring and we were nervous about the cost of rewiring. Tri-City gave us a thorough quote, explained every line item, and completed the job on time and on budget. The crew was professional and cleaned up immaculately.</p>
+            <p class="t-text">Had pot lights put in throughout the main floor and the difference is unbelievable. The team was tidy, fast, and took the time to explain the dimmer options. No mess left behind. Already booking them for the upstairs.</p>
             <div class="t-author">
               <div class="t-avatar" aria-hidden="true">S</div>
               <div>
-                <div class="t-name">Sandra M.</div>
+                <div class="t-name">Sandra O.</div>
                 <div class="t-loc">Kitchener · Google · 1 month ago</div>
               </div>
             </div>
@@ -452,51 +448,23 @@
           <div class="testimonial-card">
             <div class="t-quote">"</div>
             <div class="t-stars">★★★★★</div>
-            <p class="t-text">Called them at 11pm for a panel issue — tripped breaker that wouldn't reset. Electrician was at my door within 40 minutes, diagnosed a faulty breaker, and had power restored by midnight. True emergency service. Absolutely phenomenal.</p>
+            <p class="t-text">Our 1970s home had aluminum wiring and we couldn't get insurance without fixing it. Tri-City did a full remediation, pulled the permit, and we had our insurance in hand within two weeks. Professional, thorough, and fairly priced.</p>
             <div class="t-author">
-              <div class="t-avatar" aria-hidden="true">M</div>
+              <div class="t-avatar" aria-hidden="true">R</div>
               <div>
-                <div class="t-name">Mike T.</div>
-                <div class="t-loc">Cambridge · Google · 3 weeks ago</div>
+                <div class="t-name">Robert &amp; Cathy L.</div>
+                <div class="t-loc">Cambridge · Google · 6 weeks ago</div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-card">
-            <div class="t-quote">"</div>
-            <div class="t-stars">★★★★★</div>
-            <p class="t-text">Got pot lights installed throughout the main floor — 24 lights total. The difference is night and day. The team was in and out in a day, patched every hole perfectly, and left the house spotless. Well worth every dollar.</p>
-            <div class="t-author">
-              <div class="t-avatar" aria-hidden="true">A</div>
-              <div>
-                <div class="t-name">Amanda &amp; Jeff L.</div>
-                <div class="t-loc">Guelph · Google · 5 weeks ago</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="t-quote">"</div>
-            <div class="t-stars">★★★★★</div>
-            <p class="t-text">Used Tri-City for a 200A panel upgrade for my rental property in Cambridge. Competitive quote, clean work, ESA certificate delivered on schedule. My property management company now refers them to all our landlord clients. Highly recommended.</p>
-            <div class="t-author">
-              <div class="t-avatar" aria-hidden="true">P</div>
-              <div>
-                <div class="t-name">Paul W.</div>
-                <div class="t-loc">Cambridge · Google · 2 months ago</div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /track -->
-      </div><!-- /track-outer -->
-    </div><!-- /carousel-wrap -->
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     ABOUT
-═══════════════════════════════════ -->
+<!-- ABOUT -->
 <section id="about" aria-labelledby="about-title">
   <div class="wrap">
     <div class="about-grid">
@@ -504,42 +472,42 @@
         <div class="about-img-main">
           <img
             src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
-            alt="Tri-City Electrical team at work on a residential job"
+            alt="Tri-City Electrical team member working on a panel"
             loading="lazy" onerror="imgFallback(this)">
         </div>
         <div class="about-img-accent">
           <img
             src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1"
-            alt="Electrical panel detail — safe, certified workmanship"
+            alt="Clean electrical panel installation"
             loading="lazy" onerror="imgFallback(this)">
         </div>
       </div>
       <div>
         <div class="eyebrow sr">Our Story</div>
-        <h2 class="section-title sr d1" id="about-title">Serving the Tri-City Since 2009</h2>
+        <h2 class="section-title sr d1" id="about-title">Tri-City's Electricians Since 2009</h2>
         <p class="sr d2" style="font-size:1rem;color:var(--text-lt);line-height:1.78;margin-bottom:1.25rem">
-          Tri-City Electrical started as a one-truck operation in Kitchener, built on a simple promise: do the work right, treat people fairly, and never cut corners on safety. Fifteen years later, that promise still drives everything we do.
+          Tri-City Electrical started as a two-person crew out of a service van in Kitchener. Today we're a team of 12 ESA-certified electricians, but our approach hasn't changed: every job gets a permit, every circuit gets tested, and every customer gets a written quote up front.
         </p>
         <p class="sr d2" style="font-size:1rem;color:var(--text-lt);line-height:1.78;margin-bottom:1.5rem">
-          We've grown into a team of licensed master electricians and apprentices — but we still take the time to explain the work, answer your questions, and make sure every job is ESA-certified before we leave. We've wired hundreds of homes and businesses across Kitchener, Waterloo, Cambridge, Guelph, Brantford, Elmira, and New Hamburg.
+          We've become the go-to electrical contractor across Kitchener, Waterloo, and Cambridge for homeowners who want quality work done once — not twice. From a single pot light to a full panel upgrade with EV charger, we treat every job with the same care.
         </p>
         <div class="about-values sr d3">
           <div class="about-value">
             <div class="about-value-dot"></div>
-            <p><strong>Family-owned, locally operated.</strong> You deal directly with our team — no subcontractors, no outsourcing, no middlemen.</p>
+            <p><strong>ESA permit on every job.</strong> We never skip the permit. It protects your home, your insurance, and your investment.</p>
           </div>
           <div class="about-value">
             <div class="about-value-dot"></div>
-            <p><strong>Safety is non-negotiable.</strong> Every project meets or exceeds Ontario Electrical Safety Code. ESA inspection on every permit job.</p>
+            <p><strong>No sub-trades, no surprises.</strong> Our own certified electricians do the work. You know exactly who's in your home.</p>
           </div>
           <div class="about-value">
             <div class="about-value-dot"></div>
-            <p><strong>We stand behind our work.</strong> If something isn't right, we come back and fix it. No arguments, no charges, no excuses.</p>
+            <p><strong>We stand behind our work.</strong> 2-year warranty on all labour. If something we installed fails, we fix it at no charge.</p>
           </div>
         </div>
         <div class="about-sig sr d4">
-          Rob &amp; Tracy Vander Meer
-          <small>Founders, Tri-City Electrical · Est. 2009</small>
+          Dave &amp; Tyler Kowalski
+          <small>Founders, Tri-City Electrical</small>
         </div>
         <div style="margin-top:1.75rem" class="sr d5">
           <a href="#quote" class="btn btn-primary">Work With Us</a>
@@ -549,19 +517,17 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     QUOTE / CONTACT
-═══════════════════════════════════ -->
-<section id="quote" aria-labelledby="quote-title">
+<!-- QUOTE / CONTACT -->
+<section id="quote" style="background: var(--warm);" aria-labelledby="quote-title">
   <div class="wrap">
     <div class="quote-grid">
       <div>
         <div class="eyebrow sr">Get Started</div>
-        <h2 class="sr d1" id="quote-title" style="font-family:var(--fd);font-size:clamp(1.85rem,4.5vw,2.85rem);font-weight:700;line-height:1.18;letter-spacing:-.02em;color:var(--text);margin-bottom:1rem">
+        <h2 class="quote-left h2 sr d1" id="quote-title" style="font-family:var(--fd);font-size:clamp(1.85rem,4.5vw,2.85rem);font-weight:700;line-height:1.18;letter-spacing:-.02em;color:var(--text);margin-bottom:1rem">
           Free Estimate —<br>No Pressure, No Obligation
         </h2>
         <p class="sr d2" style="font-size:1rem;color:var(--text-lt);line-height:1.75;margin-bottom:2rem;max-width:400px">
-          Tell us about your electrical project. We'll visit your property, assess the work, and give you a detailed written quote within 48 hours — no charge, no commitment.
+          Tell us about your project. We'll visit, assess, and deliver a detailed written quote — free of charge, no commitment required.
         </p>
         <div class="contact-items sr d3">
           <a href="tel:5195550187" class="contact-item" style="text-decoration:none">
@@ -570,7 +536,7 @@
             </div>
             <div>
               <strong>(519) 555-0187</strong>
-              <span>Mon–Fri 8am–6pm · Sat 9am–4pm · 24/7 Emergency</span>
+              <span>Mon–Fri 8am–6pm · Sat 9am–4pm</span>
             </div>
           </a>
           <a href="mailto:info@tricityelectrical.ca" class="contact-item" style="text-decoration:none">
@@ -587,21 +553,20 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <strong>Kitchener · Waterloo · Cambridge</strong>
-              <span>Guelph · Brantford · Elmira · New Hamburg</span>
+              <strong>Tri-City &amp; Surrounding Areas</strong>
+              <span>Kitchener · Waterloo · Cambridge · Guelph · Elmira</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Form Card -->
       <div class="quote-form-card sr d2">
         <div class="form-badge">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Quote within 48 hours
+          Free estimate within 24 hours
         </div>
         <h3>Request a Free Estimate</h3>
-        <p>No obligation. Just an honest assessment and fair price.</p>
+        <p>No obligation. No pressure. Just an honest assessment of your electrical project.</p>
         <form id="quote-form" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -622,22 +587,21 @@
             <input id="femail" type="email" placeholder="jane@example.com" autocomplete="email" />
           </div>
           <div class="form-group">
-            <label for="fservice">Service Required *</label>
+            <label for="fservice">Service Needed *</label>
             <select id="fservice" required>
               <option value="">Choose a service…</option>
-              <option>Panel Upgrade (100A → 200A)</option>
+              <option>Panel Upgrade (100A to 200A)</option>
               <option>EV Charger Installation</option>
-              <option>Home Rewiring</option>
-              <option>Pot Light Installation</option>
+              <option>Home Rewiring / Aluminum Wiring</option>
+              <option>Pot Lights &amp; Lighting</option>
               <option>Surge Protection</option>
               <option>Commercial Electrical</option>
-              <option>Emergency Service</option>
-              <option>Not sure — need a consultation</option>
+              <option>Other / Not Sure</option>
             </select>
           </div>
           <div class="form-group">
             <label for="fmsg">Tell Us About Your Project</label>
-            <textarea id="fmsg" rows="3" placeholder="e.g. Looking to upgrade panel to 200A and add an EV charger for a Tesla Model Y…"></textarea>
+            <textarea id="fmsg" rows="3" placeholder="e.g. Want to install an EV charger, have a 100-amp panel, need to know if upgrade is required…"></textarea>
           </div>
           <button type="submit" id="form-submit-btn" class="btn btn-primary btn-lg form-submit">
             Request Free Estimate
@@ -650,27 +614,25 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     FOOTER
-═══════════════════════════════════ -->
+<!-- FOOTER -->
 <footer aria-label="Site footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo" aria-label="Tri-City Electrical home">
-          <div class="logo-bolt" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div class="logo-leaf" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <div class="logo-text">
             Tri-City
             <span>Electrical</span>
           </div>
         </a>
-        <p>Kitchener-Waterloo-Cambridge's trusted ESA-certified electricians since 2009. Panel upgrades, EV chargers, rewiring &amp; more.</p>
+        <p>ESA-certified electricians serving Kitchener, Waterloo, and Cambridge since 2009. Panel upgrades, EV chargers, pot lights, and more.</p>
         <div class="footer-hours">
           <div class="footer-hour"><strong>Mon–Fri</strong><span>8:00am – 6:00pm</span></div>
           <div class="footer-hour"><strong>Saturday</strong><span>9:00am – 4:00pm</span></div>
-          <div class="footer-hour"><strong>Emergency</strong><span>24/7 On-Call</span></div>
+          <div class="footer-hour"><strong>Sun / Emergencies</strong><span>24/7 Available</span></div>
         </div>
         <div class="footer-socials" aria-label="Social media">
           <a href="#" class="footer-soc" aria-label="Instagram">
@@ -702,7 +664,6 @@
           <li><a href="#gallery">Our Work</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#quote">Get a Quote</a></li>
-          <li><a href="#why-us">Why Choose Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -717,24 +678,20 @@
         </ul>
       </div>
     </div>
+    <div class="grd-banner" style="text-align:center;padding:.75rem 1rem;background:rgba(255,255,255,.05);border-top:1px solid rgba(255,255,255,.07);font-size:.78rem;color:rgba(255,255,255,.45);">
+      This is a demo site built by <a href="https://grandriverdigital.ca" style="color:rgba(255,255,255,.65);text-decoration:underline;" target="_blank" rel="noopener">Grand River Digital</a> — grandriverdigital.ca
+    </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Tri-City Electrical. All rights reserved. ESA Certified · Fully Licensed &amp; Insured · Ontario.</p>
+      <p class="footer-copy">© 2025 Tri-City Electrical. All rights reserved. ESA Licensed. Kitchener, Ontario.</p>
       <div class="footer-legal">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
     </div>
-    <!-- GRD Banner -->
-    <div class="grd-banner">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      This is a demo site built by <a href="https://grandriverdigital.ca" target="_blank" rel="noopener">Grand River Digital</a> — grandriverdigital.ca
-    </div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════
-     LIGHTBOX MODAL
-═══════════════════════════════════ -->
+<!-- LIGHTBOX MODAL -->
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
   <button class="lb-close" id="lb-close" aria-label="Close image viewer">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -755,7 +712,7 @@
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     Call Now
   </a>
-  <a href="#quote" class="btn btn-outline-mob">Free Estimate</a>
+  <a href="#quote" class="btn btn-outline-dk">Free Estimate</a>
 </div>
 
 <script src="script.js"></script>

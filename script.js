@@ -1,5 +1,5 @@
 /* =============================================
-   TRI-CITY ELECTRICAL — script.js
+   EVERGREEN OUTDOOR LIVING — script.js
    ============================================= */
 
 'use strict';
@@ -41,13 +41,10 @@ window.addEventListener('scroll', onScroll, { passive: true });
 ───────────────────────────────────────────── */
 $$('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return; // allow home link to scroll to top naturally
-    const target = $(href);
+    const target = $(this.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const headerHeight = hdr ? hdr.offsetHeight : 70;
-    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+    const top = target.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top, behavior: prefRed ? 'auto' : 'smooth' });
   });
 });
@@ -116,7 +113,7 @@ const statsIO = new IntersectionObserver((entries) => {
     if (e.isIntersecting && !countersDone) {
       countersDone = true;
       statsIO.disconnect();
-      animateCounter($('#sn-jobs'), 1200, '+', 1800);
+      animateCounter($('#sn-proj'), 850, '+', 1800);
       animateCounter($('#sn-yrs'), 15, '+', 1400);
     }
   });
@@ -127,21 +124,21 @@ if (statsSection) statsIO.observe(statsSection);
 /* ─────────────────────────────────────────────
    6. GALLERY LIGHTBOX
 ───────────────────────────────────────────── */
-const lightbox      = $('#lightbox');
-const lbImg         = $('#lb-img');
-const lbCaption     = $('#lb-caption');
-const lbClose       = $('#lb-close');
-const lbPrev        = $('#lb-prev');
-const lbNext        = $('#lb-next');
-const galleryItems  = $$('.gallery-item[data-src]');
-let currentIndex    = 0;
+const lightbox    = $('#lightbox');
+const lbImg       = $('#lb-img');
+const lbCaption   = $('#lb-caption');
+const lbClose     = $('#lb-close');
+const lbPrev      = $('#lb-prev');
+const lbNext      = $('#lb-next');
+const galleryItems = $$('.gallery-item[data-src]');
+let currentIndex  = 0;
 
 function openLightbox(index) {
   const item = galleryItems[index];
   if (!item) return;
   currentIndex = index;
   lbImg.src = item.dataset.src;
-  lbImg.alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+  lbImg.alt = item.querySelector('img').alt;
   lbCaption.textContent = item.dataset.caption || '';
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -151,6 +148,7 @@ function openLightbox(index) {
 function closeLightbox() {
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
+  // return focus to the item that opened it
   if (galleryItems[currentIndex]) galleryItems[currentIndex].focus();
 }
 
@@ -197,16 +195,16 @@ lightbox.addEventListener('touchend', (e) => {
 /* ─────────────────────────────────────────────
    7. TESTIMONIALS CAROUSEL
 ───────────────────────────────────────────── */
-const track        = $('#carousel-track');
+const track       = $('#carousel-track');
 const dotsContainer = $('#carousel-dots');
-const prevBtn      = $('#prev-btn');
-const nextBtn      = $('#next-btn');
-const cards        = $$('.testimonial-card', track);
+const prevBtn     = $('#prev-btn');
+const nextBtn     = $('#next-btn');
+const cards       = $$('.testimonial-card', track);
 
 if (track && cards.length) {
   let currentSlide = 0;
   let slidesPerView = getSlidesPerView();
-  let totalSlides = Math.ceil(cards.length / slidesPerView);
+  const totalSlides = Math.ceil(cards.length / slidesPerView);
   let autoInterval = null;
 
   function getSlidesPerView() {
@@ -217,12 +215,11 @@ if (track && cards.length) {
 
   function buildDots() {
     dotsContainer.innerHTML = '';
-    totalSlides = Math.ceil(cards.length / slidesPerView);
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === currentSlide ? ' active' : '');
       dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + totalSlides);
+      dot.setAttribute('aria-label', `Slide ${i + 1} of ${totalSlides}`);
       dot.setAttribute('aria-selected', i === currentSlide);
       dot.addEventListener('click', () => goTo(i));
       dotsContainer.appendChild(dot);
@@ -238,15 +235,15 @@ if (track && cards.length) {
 
   function goTo(index) {
     currentSlide = (index + totalSlides) % totalSlides;
-    const cardWidth = cards[0].offsetWidth + 20; // gap ≈ 20px
+    const cardWidth = cards[0].offsetWidth + 20; // gap = 1.25rem ~ 20px
     const offset = currentSlide * slidesPerView * cardWidth;
-    track.style.transform = 'translateX(-' + offset + 'px)';
+    track.style.transform = `translateX(-${offset}px)`;
     updateDots();
   }
 
   function startAuto() {
     clearInterval(autoInterval);
-    autoInterval = setInterval(() => goTo(currentSlide + 1), 5500);
+    autoInterval = setInterval(() => goTo(currentSlide + 1), 5000);
   }
   function stopAuto() { clearInterval(autoInterval); }
 
@@ -269,9 +266,8 @@ if (track && cards.length) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       slidesPerView = getSlidesPerView();
-      currentSlide = 0;
-      buildDots();
       goTo(0);
+      buildDots();
     }, 250);
   });
 
@@ -281,7 +277,7 @@ if (track && cards.length) {
 }
 
 /* ─────────────────────────────────────────────
-   8. MOBILE STICKY BAR — 600ms delay + scroll
+   8. MOBILE STICKY BAR — scroll-triggered + 600ms fallback
 ───────────────────────────────────────────── */
 const mobBar = $('#mob-bar');
 if (mobBar) {
@@ -289,6 +285,7 @@ if (mobBar) {
   const showMobBar = () => {
     if (!mobBarShown) { mobBarShown = true; mobBar.classList.add('visible'); }
   };
+  // Show on first scroll, fallback after 600ms
   window.addEventListener('scroll', showMobBar, { passive: true, once: true });
   setTimeout(showMobBar, 600);
 }
@@ -299,9 +296,12 @@ if (mobBar) {
 const quoteForm = $('#quote-form');
 const submitBtn = $('#form-submit-btn');
 if (quoteForm && submitBtn) {
+  // Snapshot childNodes before any mutation so we can restore if needed
+  const btnOriginalNodes = [...submitBtn.childNodes].map(n => n.cloneNode(true));
   quoteForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const checkmark = document.createTextNode('\u2705 Sent! We\u2019ll be in touch within 24\u00a0hours.');
+    // Build success state via DOM (never innerHTML)
+    const checkmark = document.createTextNode('\u2705 Sent! We\u2019ll be in touch within 24 hours.');
     submitBtn.replaceChildren(checkmark);
     submitBtn.style.background = '#10B981';
     submitBtn.style.boxShadow = '0 8px 24px rgba(16,185,129,.38)';
