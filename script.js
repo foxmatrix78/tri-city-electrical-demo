@@ -334,3 +334,42 @@ if (quoteForm && submitBtn) {
     setTimeout(revealInView, 800);
   });
 })();
+
+
+/* ── FAQ Accordion (subpages) ── */
+(function() {
+  function initFaq() {
+    var triggers = document.querySelectorAll('.faq-trigger');
+    triggers.forEach(function(btn) {
+      // Find the panel: either by aria-controls or next sibling
+      var panelId = btn.getAttribute('aria-controls');
+      var panel = panelId ? document.getElementById(panelId) : btn.nextElementSibling;
+      if (!panel) return;
+
+      btn.addEventListener('click', function() {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        triggers.forEach(function(other) {
+          var otherId = other.getAttribute('aria-controls');
+          var otherPanel = otherId ? document.getElementById(otherId) : other.nextElementSibling;
+          other.setAttribute('aria-expanded', 'false');
+          if (otherPanel) {
+            otherPanel.style.maxHeight = '0';
+            otherPanel.classList.remove('is-open');
+          }
+        });
+        // Toggle this one
+        if (!open) {
+          btn.setAttribute('aria-expanded', 'true');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          panel.classList.add('is-open');
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaq);
+  } else {
+    initFaq();
+  }
+})();

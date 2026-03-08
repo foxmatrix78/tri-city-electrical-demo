@@ -10,15 +10,77 @@
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <div class="topbar"><span><span class="topbar__dot" aria-hidden="true"></span><strong>ESA-Licensed Electricians · Kitchener, Cambridge &amp; Waterloo Region</strong></span><span class="topbar__pill">ESA #7012345</span><a href="tel:5195550199" class="topbar__link">(519) 555-0199</a></div>
-  <header class="header" id="header"><div class="container header__inner">
-    <a href="../" class="logo"><div class="logo__mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="logo__text"><div class="logo__name">Tri-City <span>Potlight &amp; Electrical</span></div><div class="logo__tagline">Kitchener's #1 Potlight Specialists</div></div></a>
-    <nav class="nav" id="nav"><ul class="nav__list" role="list"><li><a href="../" class="nav__link">Home</a></li><li><a href="../about/" class="nav__link">About</a></li><li><a href="../services/" class="nav__link">Services</a></li><li><a href="../projects/" class="nav__link">Projects</a></li><li><a href="../contact/" class="nav__link">Contact</a></li></ul><a href="../contact/" class="nav__mobile-cta">Free Quote</a></nav>
-    <div class="header__right"><a href="tel:5195550199" class="header__phone"><span class="header__phone-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>(519) 555-0199</a><a href="../contact/" class="btn btn--accent btn--sm">Free Quote</a></div>
-    <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></button>
-  </div></header>
-  <main id="main">
+
+<div id="topbar">
+  <div class="topbar-left">
+    <div class="topbar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Kitchener, Waterloo &amp; Cambridge
+    </div>
+    <div class="topbar-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Mon–Fri 8am–6pm &nbsp;|&nbsp; Sat 9am–4pm &nbsp;|&nbsp; 24/7 Emergency
+    </div>
+  </div>
+  <a href="tel:5195550187" class="topbar-phone">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    (519) 555-0187
+  </a>
+</div>
+
+<!-- STICKY HEADER -->
+<header id="hdr">
+  <div class="wrap hdr-inner">
+    <a href="../" class="logo" aria-label="Tri-City Electrical — home">
+      <div class="logo-leaf" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="logo-text">
+        Tri-City
+        <span>Electrical</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="../">Home</a>
+      <a href="../services/">Services</a>
+      <a href="../projects/" aria-current="page">Projects</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+
+    <div class="hdr-right">
+      <a href="tel:5195550187" class="hdr-phone" aria-label="Call us">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (519) 555-0187
+      </a>
+      <a href="../contact/" class="btn btn-primary btn-sm">Free Estimate</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<div id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <nav>
+    <a href="../" class="mobile-link">Home</a>
+    <a href="../services/" class="mobile-link">Services</a>
+    <a href="../projects/" class="mobile-link">Projects</a>
+    <a href="../about/" class="mobile-link">About</a>
+    <a href="../contact/" class="mobile-link">Contact</a>
+  </nav>
+  <div class="mobile-nav-cta">
+    <a href="tel:5195550187" class="btn btn-outline-dk btn-lg" style="justify-content:center">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (519) 555-0187
+    </a>
+    <a href="../contact/" class="btn btn-primary btn-lg" style="justify-content:center">Get Free Estimate</a>
+  </div>
+</div>
+
+<main id="main">
 
     <div class="page-hero"><div class="container page-hero__inner">
       <nav class="breadcrumb"><a href="../">Home</a><span class="breadcrumb__sep" aria-hidden="true">/</span><span aria-current="page">Projects</span></nav>
@@ -64,20 +126,86 @@
       <div class="cert-pill sr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ESA Licensed · WSIB Covered · All Work Permitted</div>
     </div></div></section>
   </main>
-  <footer class="footer"><div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand"><a href="../" class="logo"><div class="logo__mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="logo__text"><div class="logo__name">Tri-City <span>Electrical</span></div></div></a><p>ESA-licensed electricians serving Kitchener, Cambridge, and Waterloo Region since 2009. Potlight specialists and full-service electrical.</p><div class="footer__socials"><a href="#" class="footer__soc" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="footer__soc" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
-      <div class="footer__col"><h5>Services</h5><ul><li><a href="../services/#potlights">Potlight Installation</a></li><li><a href="../services/#panels">Panel Upgrades</a></li><li><a href="../services/#ev-chargers">EV Chargers</a></li><li><a href="../services/#wiring">Wiring &amp; Rewiring</a></li><li><a href="../services/#outlets">Outlets &amp; Switches</a></li><li><a href="../services/#exterior">Exterior Lighting</a></li></ul></div>
-      <div class="footer__col"><h5>Company</h5><ul><li><a href="../about/">About Us</a></li><li><a href="../projects/">Our Work</a></li><li><a href="../about/#reviews">Reviews</a></li><li><a href="../contact/">Contact</a></li></ul></div>
-      <div class="footer__col"><h5>Contact</h5><ul><li><a href="tel:5195550199">(519) 555-0199</a></li><li><a href="mailto:info@tricityelectrical.ca">info@tricityelectrical.ca</a></li><li><a href="../contact/">Free Quote</a></li></ul><div style="margin-top:1rem;padding:.875rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-10);"><div style="font-size:.75rem;font-weight:700;color:var(--ink-400);letter-spacing:.05em;margin-bottom:.25rem;">HOURS</div><div style="font-size:.875rem;font-weight:700;color:var(--ink-200);">Mon–Fri 8AM–6PM</div><div style="font-size:.75rem;color:var(--ink-500);margin-top:.25rem;">Sat by appointment · ESA #7012345</div></div></div>
+
+<footer aria-label="Site footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../" class="logo" aria-label="Tri-City Electrical home">
+          <div class="logo-leaf" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="logo-text">
+            Tri-City
+            <span>Electrical</span>
+          </div>
+        </a>
+        <p>ESA-certified electricians serving Kitchener, Waterloo, and Cambridge since 2009. Panel upgrades, EV chargers, pot lights, and more.</p>
+        <div class="footer-hours">
+          <div class="footer-hour"><strong>Mon–Fri</strong><span>8:00am – 6:00pm</span></div>
+          <div class="footer-hour"><strong>Saturday</strong><span>9:00am – 4:00pm</span></div>
+          <div class="footer-hour"><strong>Sun / Emergencies</strong><span>24/7 Available</span></div>
+        </div>
+        <div class="footer-socials" aria-label="Social media">
+          <a href="#" class="footer-soc" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" class="footer-soc" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="footer-soc" aria-label="Google Reviews"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="../services/">Panel Upgrades</a></li>
+          <li><a href="../services/">EV Charger Install</a></li>
+          <li><a href="../services/">Home Rewiring</a></li>
+          <li><a href="../services/">Pot Lights</a></li>
+          <li><a href="../services/">Surge Protection</a></li>
+          <li><a href="../services/">Commercial Electrical</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../about/">About Us</a></li>
+          <li><a href="../projects/">Our Work</a></li>
+          <li><a href="../about/">Reviews</a></li>
+          <li><a href="../contact/">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Service Areas</h5>
+        <ul>
+          <li><a href="../contact/">Kitchener</a></li>
+          <li><a href="../contact/">Waterloo</a></li>
+          <li><a href="../contact/">Cambridge</a></li>
+          <li><a href="../contact/">Guelph</a></li>
+          <li><a href="../contact/">Brantford</a></li>
+          <li><a href="../contact/">Elmira &amp; New Hamburg</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer__bottom"><div class="footer__copy">&copy; 2025 Tri-City Potlight &amp; Electrical. All rights reserved. Kitchener, Ontario.</div><div class="footer__links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
-  
     <div class="grd-banner">
-      <p>This is a demo site built by <a href="https://grandriverdigital.ca" target="_blank" rel="noopener">Grand River Digital</a> — Ontario web agency.</p>
+      This is a demo site built by <a href="https://grandriverdigital.ca" target="_blank" rel="noopener">Grand River Digital</a> — grandriverdigital.ca
     </div>
-  </div></footer>
-  <div class="mob-bar" id="mobBar"><a href="tel:5195550199" class="btn btn--primary btn--sm" style="flex:1;text-align:center;">Call Now</a><a href="../contact/" class="btn btn--accent btn--sm" style="flex:1;text-align:center;">Free Quote</a></div>
-  <script src="../script.js"></script>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Tri-City Electrical. All rights reserved. ESA Licensed. Kitchener, Ontario.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div id="mob-bar" role="navigation" aria-label="Quick contact">
+  <a href="tel:5195550187" class="btn btn-primary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.16 6.16l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call Now
+  </a>
+  <a href="../contact/" class="btn btn-outline-dk">Free Estimate</a>
+</div>
+
+<script src="../script.js"></script>
 </body>
 </html>
